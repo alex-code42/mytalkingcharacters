@@ -32,7 +32,7 @@ export default function Character() {
 
   return (
     <>
-
+              <h2>This is the detail Page</h2>
               {data.name}
               {data.attack}
               {data.comparison}
