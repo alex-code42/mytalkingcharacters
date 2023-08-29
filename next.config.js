@@ -1,17 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ["@svgr/webpack"],
+    });
+
+    return config;
+  },
 }
 
 module.exports = {
+  nextConfig,
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'cdn.midjourney.com',
-        port: '',
-        pathname: '',
-      },
-    ],
+    domains: [`cdn.midjourney.com`,`cdn.pixabay.com` ],
   },
 }
+
