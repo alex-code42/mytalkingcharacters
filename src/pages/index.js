@@ -4,8 +4,12 @@ import useSWR from "swr";
 import useRouter from 'router';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Slider } from './Index.styled';
+import Navbar from '@/components/Navbar';
 
 import mypic from '/public/robot_with_flowers.png'
+import mypic2 from '/public/guardian_monkey.png'
+
 
 
 const router = useRouter();
@@ -33,17 +37,22 @@ export default function Home() {
 
   return (
     <>
-      <h1>This is the Homepage</h1>
-      <CharacterList  />
-      <br></br>
-      <Link href="/characters/">See the characters</Link>
-      <h4>h4 überschrift</h4>
+    <Navbar/>
+    <Slider> 
       <Image
-            src={mypic}
+            src={mypic2}
             alt="Picture of the author"
-            width={600}
-            height={600}
-    />
+            width={1400}
+            height={1400}
+      />
+            <Image
+            src={mypic2}
+            alt="Picture of the author"
+            width={1400}
+            height={1400}
+      />
+    </Slider>
+
     </>
   );
 }
