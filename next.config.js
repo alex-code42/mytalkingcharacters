@@ -3,4 +3,15 @@ const nextConfig = {
   reactStrictMode: true,
 }
 
-module.exports = nextConfig
+module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.midjourney.com',
+        port: '',
+        pathname: '',
+      },
+    ],
+  },
+}

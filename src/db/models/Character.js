@@ -12,6 +12,7 @@ const characterSchema = new Schema({
   zodiac: { type: String},
   img: { type: String },
   mapURL: { type: String},
+  slug: { type: String},
 });
 // console.log("big Place",Place);
 const Character = mongoose.models.Character || mongoose.model("Character", characterSchema);
