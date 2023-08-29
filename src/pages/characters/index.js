@@ -3,14 +3,18 @@ import CharacterList from '@/components/CharacterList'
 import useSWR from "swr";
 import useRouter from 'router';
 import Link from 'next/link';
-// import Link from "next/link.js";
 
 const router = useRouter();
 const { isReady } = router;
+
 const inter = Inter({ subsets: ['latin'] });
 
 
-export default function Home() {
+
+ 
+
+export default function Characters() {
+
 
   const fetcher = async (url) => {
     const response = await fetch(url);
@@ -26,14 +30,13 @@ export default function Home() {
     console.error('Error fetching data:', error);
   }
   console.log("Here is my data on Characters",data);
-
-
+  
+  
   return (
     <>
-      <h1>This is the Homepage</h1>
+      <h1>This is the Character-Page</h1>
       <CharacterList  />
-      <br></br>
-      <Link href="/characters/">See the characters</Link>
+      <Link href="/">Back Home</Link>
     </>
   );
 }
