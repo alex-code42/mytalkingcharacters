@@ -3,6 +3,7 @@ import CharacterList from '@/components/CharacterList'
 import useSWR from "swr";
 import useRouter from 'router';
 import Link from 'next/link';
+import Navbar from '@/components/Navbar';
 
 const router = useRouter();
 const { isReady } = router;
@@ -34,7 +35,7 @@ export default function Characters() {
   
   return (
     <>
-      <h1>This is the Character-Page</h1>
+      <Navbar/>
       <CharacterList  />
       <Link href="/">Back Home</Link>
     </>

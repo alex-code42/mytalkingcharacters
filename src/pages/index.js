@@ -4,11 +4,11 @@ import useSWR from "swr";
 import useRouter from 'router';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Slider } from './Index.styled';
+
 import Navbar from '@/components/Navbar';
 
 import mypic from '/public/robot_with_flowers.png'
-import mypic2 from '/public/guardian_monkey.png'
+import mypic2 from '/public/uhrzeit.png'
 
 
 
@@ -38,7 +38,6 @@ export default function Home() {
   return (
     <>
     <Navbar/>
-    <Slider> 
       <Image
             src={mypic2}
             alt="Picture of the author"
@@ -51,7 +50,7 @@ export default function Home() {
             width={1400}
             height={1400}
       />
-    </Slider>
+   
 
     </>
   );
