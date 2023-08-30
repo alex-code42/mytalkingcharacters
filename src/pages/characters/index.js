@@ -37,8 +37,8 @@ export default function Characters() {
     <>
     
           <Navbar/>
-          <div className='content-center'>
-              <CharacterList  />
+          <div className=" mx-auto">
+              <CharacterList />
           </div>
       
     </>
