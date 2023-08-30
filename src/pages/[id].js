@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Image from 'next/image'
 import mypic from '/public/guardian_monkey.png'
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
 
 
 
@@ -34,8 +35,7 @@ export default function Character() {
   return (
     <>
     <Navbar/>
-    <CharacterCard/>
-    <h2>This is the details Page</h2>
+    
           <Image  
             src={mypic}
             alt="Picture of rose"
