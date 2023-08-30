@@ -1,23 +1,84 @@
+import React from 'react';
 
 
-
-
-
-
-{/* <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <a href="#">
-        <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
-    </a>
-    <div class="p-5">
-        <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-        </a>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Read more
-             <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-        </a>
+export default function CharacterCard({data}){
+    
+    return(
+      <>
+      <div className="my test">
+  {/* <!-- FAQ --> */}
+  <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  {/* <!-- Title --> */}
+  <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
+    <h2 class="text-2xl font-bold md:text-3xl md:leading-tight text-gray-800 dark:text-gray-200">
+    {data.name}
+    </h2>
+  </div>
+  {/* <!-- End Title --> */}
+  
+  <div class="max-w-5xl mx-auto">
+    {/* <!-- Grid --> */}
+    <div class="grid sm:grid-cols-2 gap-6 md:gap-12">
+      <div>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
+          Attack:
+        </h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+            {data.attack}        </p>
+      </div>
+      {/* <!-- End Col --> */}
+  
+      <div>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
+          Comparison
+        </h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+        {data.comparison}        </p>
+      </div>
+      {/* <!-- End Col --> */}
+  
+      <div>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
+          Description
+        </h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+        {data.description}        </p>
+      </div>
+      {/* <!-- End Col --> */}
+  
+      <div>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
+          Leaving no trail behind
+        </h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+        {data.leavingbehindtrail}        </p>
+      </div>
+      {/* <!-- End Col --> */}
+  
+      <div>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
+          Weaknesses:
+        </h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+        {data.weaknesses}        </p>
+      </div>
+      {/* <!-- End Col --> */}
+  
+      <div>
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
+          Zodiac Sign:
+        </h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+        {data.zodiac}        </p>
+      </div>
+      {/* <!-- End Col --> */}
     </div>
-</div> */}
+    {/* <!-- End Grid --> */}
+  </div>
+  </div>
+  {/* <!-- End FAQ --> */}
+  
+  </div>
+      </>
+    )
+  }
