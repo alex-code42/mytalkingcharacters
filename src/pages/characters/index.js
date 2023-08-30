@@ -35,9 +35,12 @@ export default function Characters() {
   
   return (
     <>
-      <Navbar/>
-      <CharacterList  />
-      <Link href="/">Back Home</Link>
+    
+          <Navbar/>
+          <div className=" mx-auto">
+              <CharacterList />
+          </div>
+      
     </>
   );
 }
