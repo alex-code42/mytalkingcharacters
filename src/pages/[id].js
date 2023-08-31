@@ -46,7 +46,7 @@ export default function Character() {
             height={1000}
             className=" mx-auto"
           />
-    <CharacterCard data={data}/>
+        <CharacterCard data={data}/>
 
 
       
