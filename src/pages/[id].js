@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import Image from 'next/image'
-import mypic from '/public/guardian_monkey.png'
+import mypic from '/public/characters/guardian_monkey.png'
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import CharacterCard from "@/components/Character";
@@ -31,9 +31,10 @@ export default function Character() {
     console.error('Error fetching data:', error);
   }
   console.log("Here is my IMG-url on [ID]",data.img);
+  console.log("Here is my IMG-slug on [ID]",data.slug);
 
 
-  
+  // `/public/characters/${data.slug}.png`
 
   return (
     <>
