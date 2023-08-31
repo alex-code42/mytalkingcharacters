@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 import Navbar from '@/components/Navbar';
 
-import mypic from '/public/robot_with_flowers.png'
+import mypic from '/public/characters/robot_with_flowers.png'
 import mypic2 from '/public/uhrzeit.png'
 import CreateCharacterForm from '@/components/CharacterForm';
 
@@ -45,7 +45,7 @@ export default function Home() {
             width={1400}
             height={1400}
       />
-      <CreateCharacterForm/>
+      
             <Image
             src={mypic2}
             alt="Picture of the author"
