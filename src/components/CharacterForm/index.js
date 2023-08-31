@@ -1,4 +1,4 @@
-
+import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 
 
 export default function CreateCharacterForm() {
@@ -10,33 +10,183 @@ export default function CreateCharacterForm() {
         method: 'POST',
         body: formData,
       })
-   
+      console.log("this is the event",event);
       // Handle response if necessary
       const data = await response.json()
       // ...
     }
    
     return (
-      <form onSubmit={onSubmit}>
-          <div>
-            <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Price</label>
-            <div class="relative mt-2 rounded-md shadow-sm">
-                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <span class="text-gray-500 sm:text-sm">$</span>
+<div>
+<form onSubmit={onSubmit}>
+      <div className='container mx-auto px-20'>
+      <div className="space-y-12">
+        <div className="border-b border-gray-900/10 pb-12">
+          <h2 className="text-base font-semibold leading-7 text-gray-900">Profile</h2>
+          <p className="mt-1 text-sm leading-6 text-gray-600">
+            This information will be displayed publicly so be careful what you share.
+          </p>
+
+          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+
+
+
+            <div className="col-span-full">
+              <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
+                Character Foto
+              </label>
+              <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                <div className="text-center">
+                  <PhotoIcon className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" />
+                  <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                    <label
+                      htmlFor="file-upload"
+                      className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                    >
+                      <span>Upload a file</span>
+                      <input id="file-upload" name="file-upload" type="file" className="sr-only" />
+                    </label>
+                    <p className="pl-1">or drag and drop</p>
+                  </div>
+                  <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
                 </div>
-                <input type="text" name="price" id="price" class="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="0.00"/>
-                <div class="absolute inset-y-0 right-0 flex items-center">
-                <label for="currency" class="sr-only">Currency</label>
-                <select id="currency" name="currency" class="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
-                    <option>USD</option>
-                    <option>CAD</option>
-                    <option>EUR</option>
-                </select>
-                </div>
+              </div>
             </div>
+          </div>
+        </div>
+
+        <div className="border-b border-gray-900/10 pb-12">
+          <h2 className="text-base font-semibold leading-7 text-gray-900">Character Information</h2>
+          <p className="mt-1 text-sm leading-6 text-gray-600">Make it funny.</p>
+
+          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div className="sm:col-span-3">
+              <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
+                Character Name
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  autoComplete="given-name"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
             </div>
-        <button type="submit">Submit</button>
-      </form>
+
+            <div className="sm:col-span-3">
+              <label htmlFor="description" className="block text-sm font-medium leading-6 text-gray-900">
+                Description
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="description"
+                  id="description"
+                  autoComplete="family-name"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+          
+
+
+
+            <div className="col-span-full">
+              <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
+                Street address
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="street-address"
+                  id="street-address"
+                  autoComplete="street-address"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-2 sm:col-start-1">
+              <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">
+                City
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="city"
+                  id="city"
+                  autoComplete="address-level2"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-2">
+              <label htmlFor="region" className="block text-sm font-medium leading-6 text-gray-900">
+                State / Province
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="region"
+                  id="region"
+                  autoComplete="address-level1"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-2">
+              <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">
+                ZIP / Postal code
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="postal-code"
+                  id="postal-code"
+                  autoComplete="postal-code"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-b border-gray-900/10 pb-12">
+          <h2 className="text-base font-semibold leading-7 text-gray-900">Notifications</h2>
+          <p className="mt-1 text-sm leading-6 text-gray-600">
+            We'll always let you know about important changes, but you pick what else you want to hear about.
+          </p>
+
+
+        </div>
+      </div>
+
+      <div className="mt-6 flex items-center justify-end gap-x-6">
+        <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
+          Cancel
+        </button>
+        <button
+          type="submit"
+          className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
+          Save
+        </button>
+                  <div className="mt-10 space-y-10">
+
+          </div>
+      </div>
+      </div>
+      <div className="mt-10 space-y-10">
+</div>
+
+    </form>
+    <div className="mt-20 space-y-20"></div>
+    </div>
     )
   }
 
