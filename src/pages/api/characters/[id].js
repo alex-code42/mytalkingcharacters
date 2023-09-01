@@ -12,4 +12,12 @@ export default async function handler(request, response) {
       }
       response.status(200).json(character);
     }
+    if (request.method === "PUT") {
+      const characterToUpdate = await Character.findByIdAndUpdate(id, {
+        $set: request.body,
+      });
+      // Find the joke by its ID and update the content that is part of the request body!
+      response.status(200).json(characterToUpdate);
+      // If successful, you'll receive an OK status code.
+    }
 }
