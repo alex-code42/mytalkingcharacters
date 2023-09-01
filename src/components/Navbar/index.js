@@ -2,6 +2,8 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useSession, signIn, signOut } from "next-auth/react"
+import { NavbarAccountCheck } from '@/pages/account'
+import Link from 'next/link'
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -15,6 +17,9 @@ function classNames(...classes) {
 }
 
 export default function Example() {
+  const { data: session } = useSession()
+  console.log("this is the session",session);
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -98,7 +103,9 @@ export default function Example() {
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
+                            {/* {session.name} */}
                             Your Profile
+                           
                           </a>
                         )}
                       </Menu.Item>
@@ -118,7 +125,7 @@ export default function Example() {
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Sign out
+                            <NavbarAccountCheck/>
                           </a>
                         )}
                       </Menu.Item>

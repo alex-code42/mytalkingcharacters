@@ -5,6 +5,17 @@ import robotlogo from '/public/chatbot_logo.png'
 
 console.log(robotlogo);
 
+function GoogleLoginLink() {
+  const googleLoginUrl = '/login'; // Replace with the actual Google login URL
+  const callbackUrl = '/'; // Replace with your callback URL
+
+  return (
+    <Link to={`${googleLoginUrl}?callbackUrl=${callbackUrl}`}>
+      Login with Google
+    </Link>
+  );
+}
+
 export default function Component() {
   const { data: session } = useSession()
   if (session) {
