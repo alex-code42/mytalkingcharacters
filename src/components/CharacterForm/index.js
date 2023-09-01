@@ -1,51 +1,17 @@
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import useSWR from "swr";
 
-export default function CreateCharacterForm() {
-  const characters = useSWR("/api/characters");
-    async function onSubmit(event) {
-      event.preventDefault()
-   
-      const formData = new FormData(event.target)
-      const characterData = Object.fromEntries(formData)
-      const response = await fetch("/api/characters", {
-        method: "POST",
-        body: JSON.stringify(characterData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      // Here we're using the API route we've built earlier.
-      // We're declaring a response returning a promise while we're posting to our database.
-  
-      // Here we're using fetch and not swr, because swr is for data fetching, and not data mutation.
-      // ... but we can notify swr about data changes using the mutate function! (See below.)
-  
-      // Our method is post, the body contains our jokeData JSON, and our header provides additional information about the data we're sending.
-  
-      // Our joke is on its way!
-  
-      if (response.ok) {
-        // If our attempt at posting our joke is a success, we proceed here.
-        await response.json();
-        // At this point, the promise of response has resolved.
-        characters.mutate();
-        // Now we're notifying swr that our data has been mutated, which will trigger a rerender.
-        // If we don't include this line, the page won't automatically refresh and our submitted joke won't be immediately visible.
-        event.target.reset();
-      } else {
-        console.error(`Error: ${response.status}`);
-      }
-    }
+export default function Form({onSubmit, formName}) {
+
   
    
     return (
 <div>
-<form onSubmit={onSubmit}>
+<form onSubmit={(event) => onSubmit(event)}>
       <div className='container mx-auto px-10 mt-10 space-y-10'>
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
-          <h2 className="text-base font-semibold leading-7 text-gray-900">Create the Character</h2>
+          <h2 className="text-base font-semibold leading-7 text-gray-900">{formName}</h2>
           <p className="mt-1 text-sm leading-6 text-gray-600">
             This information will be displayed publicly so be careful what you share.
           </p>
@@ -93,6 +59,7 @@ export default function CreateCharacterForm() {
                   name="name"
                   id="name"
                  
+                 
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -117,31 +84,15 @@ export default function CreateCharacterForm() {
 
 
             <div className="col-span-full">
-              <label htmlFor="comparison" className="block text-sm font-medium leading-6 text-gray-900">
-              Comparison
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="comparison"
-                  id="comparison"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
+              
+            <label for="comparison" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Comparison</label>
+            <textarea id="comparison" name='comparison' rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+
             </div>
 
             <div className="sm:col-span-2 sm:col-start-1">
-              <label htmlFor="description" className="block text-sm font-medium leading-6 text-gray-900">
-                Descritpion
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="description"
-                  id="description"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
+            <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+            <textarea id="description" name='description' rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
             </div>
 
             <div className="sm:col-span-2">
@@ -177,7 +128,7 @@ export default function CreateCharacterForm() {
         <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-gray-900">When everything is fine</h2>
           <p className="mt-1 text-sm leading-6 text-gray-600">
-You will see the character          </p>
+          You will see the character          </p>
 
 
         </div>

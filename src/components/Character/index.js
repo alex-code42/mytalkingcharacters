@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 
 export default function CharacterCard({data}){
@@ -70,14 +71,21 @@ export default function CharacterCard({data}){
         </h3>
         <p class="mt-2 text-gray-600 dark:text-gray-400">
         {data.zodiac}        </p>
+        <div className="mt-10 space-y-10"></div>
+
+        <Link href={`${data._id}/edit/`} className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Edit</Link>
+
       </div>
+
       {/* <!-- End Col --> */}
+      <div className="mt-20 space-y-20"></div>
+
     </div>
     {/* <!-- End Grid --> */}
   </div>
   </div>
   {/* <!-- End FAQ --> */}
-  
+
   </div>
       </>
     )
