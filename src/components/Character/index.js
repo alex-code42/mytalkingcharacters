@@ -1,8 +1,33 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from "next/router";
+import useSWR from "swr";
+
+
+
 
 
 export default function CharacterCard({data}){
+
+  const router = useRouter();
+  const { isReady } = router;
+  const { id } = router.query;
+
+  const { data: character, isLoading, error } = useSWR(`/api/characters/${id}`);
+
+  if (!isReady || isLoading || error) return <h2>Loading...</h2>;
+
+  async function deleteCharacter() {
+    console.log("delete BUtton pushed")
+    await fetch(`/api/characters/${id}`, {
+      method: "DELETE",
+    });
+    // You are handing over the joke identified by its id to our DELETE request method.
+    // This is the entire code required to do so.
+    router.push("/characters/");
+    // After deleting the joke, you route back to our index page.
+  }
+ 
     
     return(
       <>
@@ -74,8 +99,16 @@ export default function CharacterCard({data}){
         <div className="mt-10 space-y-10"></div>
 
         <Link href={`${data._id}/edit/`} className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Edit</Link>
-
-      </div>
+        
+        <button onClick={deleteCharacter}
+          type="button"
+          className="m-5 rounded-md bg-red-600  px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
+          Delete
+        </button>
+        <div className="mt-10 space-y-10"></div>
+        </div>
+      
 
       {/* <!-- End Col --> */}
       <div className="mt-20 space-y-20"></div>
