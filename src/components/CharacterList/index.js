@@ -16,7 +16,7 @@ export default function CharacterList() {
   console.log("mydata_in_characters",data);
   return (
     <>
-    <div className="content-center" >
+    <div className="flex flex-wrap gap-x-8 gap-y-4 justify-center " >
 
 
         {data.map((character) => (
