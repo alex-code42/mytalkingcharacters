@@ -15,7 +15,7 @@ const nextConfig = {
 module.exports = {
   nextConfig,
   images: {
-    domains: [`cdn.midjourney.com`,`cdn.pixabay.com` ],
+    domains: [`cdn.midjourney.com`,`cdn.pixabay.com`,`images.unsplash.com` ],
   },
 }
 

@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import "./Review";
 
 const { Schema } = mongoose;
 
@@ -13,6 +14,7 @@ const characterSchema = new Schema({
   img: { type: String },
   mapURL: { type: String},
   slug: { type: String},
+  reviews: { type: [Schema.Types.ObjectId], ref: "Review" },
 });
 // console.log("big Place",Place);
 const Character = mongoose.models.Character || mongoose.model("Character", characterSchema);
