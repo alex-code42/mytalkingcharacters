@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from "next/router";
 import useSWR from "swr";
+import Comments from '../Comments';
 
 
 
@@ -108,11 +109,14 @@ export default function CharacterCard({data}){
         </button>
         <div className="mt-10 space-y-10"></div>
         </div>
-      
-
+        {/* {data.reviews} */}
+        {/* {data.reviews.length > 0 && <Comments reviews={data.reviews} />} */}
       {/* <!-- End Col --> */}
       <div className="mt-20 space-y-20"></div>
-
+          <div className="review">
+      
+      <Comments reviews={character.reviews}/>
+  </div>
     </div>
     {/* <!-- End Grid --> */}
   </div>

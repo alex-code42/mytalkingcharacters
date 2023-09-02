@@ -31,7 +31,7 @@ export default function Character() {
     console.error('Error fetching data:', error);
   }
   console.log("Here is my IMG-url on [ID]",data.img);
-  console.log("Here is my IMG-slug on [ID]",data.slug);
+  console.log("Here is my Comments on [ID]",data.reviews);
 
 
   // `/public/characters/${data.slug}.png`
