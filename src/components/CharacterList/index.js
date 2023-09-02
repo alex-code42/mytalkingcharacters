@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Image from 'next/image'
 import Link from "next/link";
 import mypic from '/public/characters/guardian_monkey.png'
+import 'flowbite';
 
 import { animated, useSpring } from '@react-spring/web'
 
@@ -67,6 +68,7 @@ export default function CharacterList() {
 
           </li>
         ))}
+        <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
      </div>
     </>
   );
