@@ -3,13 +3,15 @@ import Link from 'next/link';
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import Comments from '../Comments';
+import CommentForm from '../CommentForm';
+
 
 
 
 
 
 export default function CharacterCard({data}){
-
+  
   const router = useRouter();
   const { isReady } = router;
   const { id } = router.query;
@@ -29,7 +31,7 @@ export default function CharacterCard({data}){
     // After deleting the joke, you route back to our index page.
   }
  
-    
+  console.log("the slug",character.slug);
     return(
       <>
       <div className="my test">
@@ -114,8 +116,10 @@ export default function CharacterCard({data}){
       {/* <!-- End Col --> */}
       <div className="mt-20 space-y-20"></div>
           <div className="review">
-      
+            
+          <CommentForm slug={character.slug}/>
       <Comments reviews={character.reviews}/>
+      
   </div>
     </div>
     {/* <!-- End Grid --> */}
