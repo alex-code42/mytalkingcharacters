@@ -1,27 +1,74 @@
 import Image from "next/image"
 import mypic from '/public/chatbot_logo.png'
 import Link from "next/link"
+import mypic3 from '/public/characters/fungal_alchemist.png'
+import mypic4 from '/public/characters/techno_dancer.png'
 
 export default function HeroSection(){
     return(
-        <section class="bg-white dark:bg-gray-900">
-        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-            <div class="mr-auto place-self-center lg:col-span-7">
-                <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">The ultimate Chatbot</h1>
-                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Experience the future of conversation with the ultimate and best chatbot ever!. "Unlock the power of cutting-edge AI technology with our unparalleled chatbot solution."</p>
-                <a href="#" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                    Get started
-                    <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                </a>
-                <Link href="/characters/" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                    See the characters
-                </Link> 
-            </div>
-            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <Image src={mypic} alt="mockup"/>
-            </div>                
+<section>
+  <div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
+      <div class="grid p-6 bg-gray-100 rounded place-content-center sm:p-8">
+        <div class="max-w-md mx-auto text-center lg:text-left">
+          <header>
+            <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Experience the future of conversation</h2>
+
+            <p class="mt-4 text-gray-500">
+            "Unlock the power of cutting-edge AI technology with our unparalleled chatbot solution."
+"Elevate your customer engagement to new heights with our industry-leading chatbot."
+            </p>
+          </header>
+
+          <a
+            href="/characters/"
+            class="inline-block px-12 py-3 mt-8 text-sm font-medium text-white transition bg-gray-900 border border-gray-900 rounded hover:shadow focus:outline-none focus:ring"
+          >
+            See the Bots
+          </a>
         </div>
-    </section>
+      </div>
+
+      <div class="lg:col-span-2 lg:py-8">
+        <ul class="grid grid-cols-2 gap-4">
+          <li>
+            <a href="/characters/" class="block group">
+            <Image class="object-cover w-full rounded aspect-square" src={mypic4} alt="office content 1"/>
+
+              <div class="mt-3">
+                <h3
+                  class="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4"
+                >
+                  The Alchemist
+                </h3>
+
+                <p class="mt-1 text-sm text-gray-700">The smart one</p>
+              </div>
+            </a>
+          </li>
+
+          <li>
+            <a href="/characters/" class="block group">
+            <Image class="object-cover w-full rounded aspect-square" src={mypic3} alt="office content 1"/>
+              
+
+
+              <div class="mt-3">
+                <h3
+                  class="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4"
+                >
+                  Other Bot
+                </h3>
+
+                <p class="mt-1 text-sm text-gray-700">Super smart one</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
     )
 }
 
