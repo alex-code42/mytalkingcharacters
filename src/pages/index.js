@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 import Navbar from '@/components/Navbar';
 
-import mypic from '/public/characters/robot_with_flowers.png'
+import mypic from '/public/bot3.png'
 import mypic2 from '/public/chatbot_logo.png'
 import CreateCharacterForm from '@/components/CharacterForm';
 import LoginComponent from './login';
@@ -45,7 +45,7 @@ export default function Home() {
             alt="Picture of the author"
             width={1400}
             height={1400}
-            className=" mx-auto"
+            className=" mx-auto h-auto max-w-full mb-9 rounded-lg"
       />
       
         <LoginComponent/>
