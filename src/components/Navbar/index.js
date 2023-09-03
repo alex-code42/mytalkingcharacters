@@ -52,7 +52,7 @@ export default function Example() {
       />
       </Link>
                 </div>
-                <div className="hidden sm:ml-6 sm:block">
+                <div className="hidden py-3 sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <a
