@@ -11,6 +11,8 @@ import mypic from '/public/bot3.png'
 import mypic2 from '/public/chatbot_logo.png'
 import CreateCharacterForm from '@/components/CharacterForm';
 import LoginComponent from './login';
+import HeroSection from '@/components/HeroSection';
+import ContentSection1 from '@/components/ContentSection';
 
 
 
@@ -40,13 +42,8 @@ export default function Home() {
   return (
     <div className=" mx-auto">
     <Navbar/>
-      <Image
-            src={mypic}
-            alt="Picture of the author"
-            width={1400}
-            height={1400}
-            className=" mx-auto h-auto max-w-full mb-9 rounded-lg"
-      />
+    <HeroSection/>
+    <ContentSection1/>
       
         <LoginComponent/>
 
