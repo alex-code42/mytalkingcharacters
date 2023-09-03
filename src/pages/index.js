@@ -8,8 +8,9 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 
 import mypic from '/public/characters/robot_with_flowers.png'
-import mypic2 from '/public/uhrzeit.png'
+import mypic2 from '/public/chatbot_logo.png'
 import CreateCharacterForm from '@/components/CharacterForm';
+import LoginComponent from './login';
 
 
 
@@ -37,23 +38,21 @@ export default function Home() {
 
 
   return (
-    <>
+    <div className=" mx-auto">
     <Navbar/>
       <Image
             src={mypic2}
             alt="Picture of the author"
             width={1400}
             height={1400}
+            className=" mx-auto"
       />
       
-            <Image
-            src={mypic2}
-            alt="Picture of the author"
-            width={1400}
-            height={1400}
-      />
+        <LoginComponent/>
+        
+    
    
 
-    </>
+    </div>
   );
 }

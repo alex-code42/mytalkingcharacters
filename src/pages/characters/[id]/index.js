@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import Image from 'next/image'
-import mypic from '/public/characters/guardian_monkey.png'
+import mypic from '/public/chatbot_logo.png'
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import CharacterCard from "@/components/Character";
