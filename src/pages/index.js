@@ -41,7 +41,7 @@ export default function Home() {
     <div className=" mx-auto">
     <Navbar/>
       <Image
-            src={mypic2}
+            src={mypic}
             alt="Picture of the author"
             width={1400}
             height={1400}
@@ -49,9 +49,6 @@ export default function Home() {
       />
       
         <LoginComponent/>
-        
-    
-   
 
     </div>
   );
