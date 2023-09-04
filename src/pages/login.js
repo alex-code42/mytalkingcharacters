@@ -24,17 +24,17 @@ export default function LoginComponent() {
     return (
       <>
       
-<div class="mx-auto w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <div class="flex justify-end px-4 pt-4">
+<div className="mx-auto w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="flex justify-end px-4 pt-4">
         
 
     </div>
-    <div class="flex flex-col items-center pb-10">
-        <img class="w-32 h-32 mb-3 rounded-full shadow-lg" src={session.user.image} alt="Bonnie image"/>
-        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{session.user.name}</h5>
-        <span class="text-sm text-gray-500 dark:text-gray-400">Logged In</span>
-        <div class="flex mt-4 space-x-3 md:mt-6">
-        <button onClick={() => signOut()} type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Sign out</button>
+    <div className="flex flex-col items-center pb-10">
+        <img className="w-32 h-32 mb-3 rounded-full shadow-lg" src={session.user.image} alt="Bonnie image"/>
+        <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">{session.user.name}</h5>
+        <span className="text-sm text-gray-500 dark:text-gray-400">Logged In</span>
+        <div className="flex mt-4 space-x-3 md:mt-6">
+        <button onClick={() => signOut()} type="button" className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Sign out</button>
         </div>
     </div>
 </div>
@@ -45,12 +45,12 @@ export default function LoginComponent() {
   return (
     <>
 
-<div class="mx-auto w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <div class="flex justify-end px-4 pt-4">
+<div className="mx-auto w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="flex justify-end px-4 pt-4">
         
 
     </div>
-    <div class="flex flex-col items-center pb-10">
+    <div className="flex flex-col items-center pb-10">
     <Image
             src={mypic2}
             alt="Picture of the author"
@@ -59,10 +59,10 @@ export default function LoginComponent() {
             className=" mx-auto"
       />
     
-          <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{session?.user.name}</h5>
-        <span class="text-sm text-gray-500 dark:text-gray-400">Please log in</span>
-        <div class="flex mt-4 space-x-3 md:mt-6">
-        <button onClick={() => signIn()} type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Sign In</button>
+          <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">{session?.user.name}</h5>
+        <span className="text-sm text-gray-500 dark:text-gray-400">Please log in</span>
+        <div className="flex mt-4 space-x-3 md:mt-6">
+        <button onClick={() => signIn()} type="button" className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Sign In</button>
         </div>
     </div>
 </div>
