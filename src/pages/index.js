@@ -1,15 +1,7 @@
 import { Inter } from 'next/font/google'
-import CharacterList from '@/components/CharacterList'
 import useSWR from "swr";
 import useRouter from 'router';
-import Link from 'next/link';
-import Image from 'next/image';
-
 import Navbar from '@/components/Navbar';
-
-import mypic from '/public/bot3.png'
-import mypic2 from '/public/chatbot_logo.png'
-import CreateCharacterForm from '@/components/CharacterForm';
 import LoginComponent from './login';
 import HeroSection from '@/components/HeroSection';
 import ContentSection1 from '@/components/ContentSection';
