@@ -10,12 +10,12 @@ const nextConfig = {
 
     return config;
   },
-}
+};
 
 module.exports = {
-  nextConfig,
+  ...nextConfig,
   images: {
-    domains: [`cdn.midjourney.com`,`cdn.pixabay.com`,`images.unsplash.com` ],
+    domains: [`cdn.midjourney.com`, `cdn.pixabay.com`, `images.unsplash.com`],
   },
-}
+};
 
