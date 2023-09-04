@@ -85,14 +85,14 @@ export default function Form({onSubmit, formName, defaultData }) {
 
             <div className="col-span-full">
               
-            <label for="comparison" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Comparison</label>
-            <textarea id="comparison" defaultValue={defaultData?.leavingbehindtrail} name='comparison' rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+            <label for="comparison" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Comparison</label>
+            <textarea id="comparison" defaultValue={defaultData?.leavingbehindtrail} name='comparison' rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
 
             </div>
 
             <div className="sm:col-span-2 sm:col-start-1">
-            <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-            <textarea id="description" defaultValue={defaultData?.leavingbehindtrail} name='description' rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+            <label for="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+            <textarea id="description" defaultValue={defaultData?.leavingbehindtrail} name='description' rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
             </div>
 
             <div className="sm:col-span-2">
