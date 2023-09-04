@@ -2,11 +2,12 @@ import useSWR from "swr";
 
 import { useSession } from "next-auth/react"
 
-export function Component() {
+export function SessionCommentForm(slug, id) {
   const { data: session, status } = useSession()
-
+  console.log("i log my session",session)
+  
   if (status === "authenticated") {
-    return <p>Signed in as {session.user.email}</p>
+    return <CommentForm slug={slug} id={id}/>
   }
 
   return <a href="/api/auth/signin">Sign in</a>
@@ -14,12 +15,16 @@ export function Component() {
 
 
 
-export default function CommentForm(slug, id ) {
+export default function CommentForm(slug, id) {
     // const { artPiecesInfo, setArtPiecesInfo } = artPiecesState;
     // if (!artPiecesInfo) {
     //   return <div>loading</div>;
     
     // console.log("wtf:", artPiecesInfo);
+
+    const { data: session, status } = useSession()
+      console.log("i log my session in the form",session.user.email)
+    
     const reviews = useSWR("/api/reviews");
       
     console.log("this is the slug",slug, id);
@@ -28,7 +33,12 @@ export default function CommentForm(slug, id ) {
     //   console.log("handleSubmit:", artPiecesInfo);
       const formData = new FormData(event.target);
       const data = Object.fromEntries(formData);
-      data.characterId = slug.id;
+      console.log("print the slug again",slug.slug.id)
+      data.characterId = slug.slug.id,
+
+      
+      data.userId = session.user.email;
+
       console.log("This is the comment in the Form", data);
       const response = await fetch("/api/reviews", {
         method: "POST",

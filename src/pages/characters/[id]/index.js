@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import CharacterCard from "@/components/CharacterCard";
 import CommentsList from "@/components/CommentList";
 import CommentForm from "@/components/CommentForm";
+import { SessionCommentForm } from "@/components/CommentForm";
 
 
 
@@ -57,7 +58,7 @@ export default function Character() {
     />     
     <CharacterCard data={data}/>
     <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        <CommentForm slug={data.slug} id={data._id} />
+        <SessionCommentForm slug={data.slug} id={data._id} />
         <CommentsList reviews={data.reviews} id={data._id}/>
     </div>
     
