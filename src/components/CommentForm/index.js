@@ -1,20 +1,35 @@
 import useSWR from "swr";
 
-export default function CommentForm(slug ) {
+import { useSession } from "next-auth/react"
+
+export function Component() {
+  const { data: session, status } = useSession()
+
+  if (status === "authenticated") {
+    return <p>Signed in as {session.user.email}</p>
+  }
+
+  return <a href="/api/auth/signin">Sign in</a>
+}
+
+
+
+export default function CommentForm(slug, id ) {
     // const { artPiecesInfo, setArtPiecesInfo } = artPiecesState;
     // if (!artPiecesInfo) {
     //   return <div>loading</div>;
     
     // console.log("wtf:", artPiecesInfo);
     const reviews = useSWR("/api/reviews");
-
-    console.log("this is the slug",slug);
+      
+    console.log("this is the slug",slug, id);
     async function handleSubmit(event) {
       event.preventDefault();
     //   console.log("handleSubmit:", artPiecesInfo);
       const formData = new FormData(event.target);
       const data = Object.fromEntries(formData);
-      console.log("The comment", data.title);
+      data.characterId = slug.id;
+      console.log("This is the comment in the Form", data);
       const response = await fetch("/api/reviews", {
         method: "POST",
         body: JSON.stringify(data),
@@ -22,15 +37,7 @@ export default function CommentForm(slug ) {
           "Content-Type": "application/json",
         },
       });
-      // Here we're using the API route we've built earlier.
-      // We're declaring a response returning a promise while we're posting to our database.
-  
-      // Here we're using fetch and not swr, because swr is for data fetching, and not data mutation.
-      // ... but we can notify swr about data changes using the mutate function! (See below.)
-  
-      // Our method is post, the body contains our jokeData JSON, and our header provides additional information about the data we're sending.
-  
-      // Our joke is on its way!
+     
   
       if (response.ok) {
         // If our attempt at posting our joke is a success, we proceed here.

@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import Comments from '../Comments';
+import Comments from '../CommentList';
 import CommentForm from '../CommentForm';
 
 
@@ -116,9 +116,6 @@ export default function CharacterCard({data}){
       {/* <!-- End Col --> */}
       <div className="mt-20 space-y-20"></div>
           <div className="review">
-            
-          <CommentForm slug={character.slug}/>
-      <Comments reviews={character.reviews}/>
       
   </div>
     </div>

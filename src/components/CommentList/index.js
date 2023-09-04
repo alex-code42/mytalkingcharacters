@@ -1,13 +1,42 @@
 import Image from 'next/image';
+import useSWR from "swr";
 
-export default function Comments({ reviews }) {
-  console.log("These are the reviews", reviews);
 
+
+
+export default function CommentsList({ reviews,id }) {
+  
+  const fetcher = async (url) => {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  };
+  // console.log(data)
+  const { data, error } = useSWR(`/api/reviews`, fetcher);
+
+  if (!data) {
+    return <h1>Loading...</h1>;
+  }
+  if (error) {
+    console.error('Error fetching data:', error);
+  }
+
+  console.log("Here are my reviews in comment List",data);
+  console.log("Here is my Character ID in comment List",id)
+ 
+  const specificId = id; // Replace with the ID you're looking for
+
+    const filteredData = data.filter((review) => review.characterId === specificId);
+
+ 
+    
   return (
     <div>
       <h3>Comments</h3>
       <ul role="list" className="divide-y divide-gray-100">
-        {reviews.map((review) => (
+        {filteredData.map((review) => (
           <li key={review._id} className="py-5">
             <div className="flex justify-between gap-x-6">
               <div className="flex min-w-0 gap-x-4">

@@ -6,6 +6,8 @@ const reviewSchema = new Schema({
   title: { type: String  },
   text: { type: String, },
   rating: { type: Number },
+  characterId: { type: String },
+  // characterId: { type: [Schema.Types.ObjectId], ref: "Character" },
 });
 
 const Review = mongoose.models.Review || mongoose.model("Review", reviewSchema);
