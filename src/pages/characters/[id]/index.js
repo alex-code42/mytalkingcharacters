@@ -4,7 +4,11 @@ import Image from 'next/image'
 import mypic from '/public/chatbot_logo.png'
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
-import CharacterCard from "@/components/Character";
+import CharacterCard from "@/components/CharacterCard";
+import CommentsList from "@/components/CommentList";
+import CommentForm from "@/components/CommentForm";
+
+
 
 
 
@@ -30,6 +34,10 @@ export default function Character() {
   if (error) {
     console.error('Error fetching data:', error);
   }
+
+  
+
+  
   console.log("Here is my IMG-url on [ID]",data.img);
   console.log("Here is my Comments on [ID]",data.reviews);
 
@@ -37,22 +45,24 @@ export default function Character() {
   // `/public/characters/${data.slug}.png`
 
   return (
-    <>
+    <div >
     <Navbar />
     
-          <Image  
-            src={mypic}
-            alt="Picture of rose"
-            width={1000}
-            height={1000}
-            className=" mx-auto"
-          />
-        <CharacterCard data={data}/>
+    <Image  
+      src={mypic}
+      alt="Picture of rose"
+      width={1000}
+      height={1000}
+      className=" mx-auto"
+    />     
+    <CharacterCard data={data}/>
+    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+        <CommentForm slug={data.slug} id={data._id} />
+        <CommentsList reviews={data.reviews} id={data._id}/>
+    </div>
+    
 
-
-      
-
-    </>
+  </div>
   );
 }
 
