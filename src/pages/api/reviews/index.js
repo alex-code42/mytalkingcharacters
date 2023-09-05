@@ -31,5 +31,11 @@ export default async function handler(request, response) {
       response.status(400).json({ error: error.message });
     }
   }
+  if (request.method === "DELETE") {
+    const reviewToDelete = await Review.findByIdAndDelete(id);
+    // Declare jokeToDelete to be the joke identified by its id and delete it.
+    // This line handles the entire deletion process.
+    response.status(200).json(reviewToDelete);
+  }
 }
 

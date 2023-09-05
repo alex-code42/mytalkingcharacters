@@ -1,10 +1,13 @@
 import Image from 'next/image';
-import useSWR from "swr";
+
+import useSWR, { useSWRConfig } from 'swr'
 
 
 
 
 export default function CommentsList({ reviews,id }) {
+  
+  const { mutate } = useSWRConfig()
   
   const fetcher = async (url) => {
     const response = await fetch(url);
@@ -30,8 +33,25 @@ export default function CommentsList({ reviews,id }) {
 
     const filteredData = data.filter((review) => review.characterId === specificId);
 
- 
-    
+   
+
+
+    async function handleDeleteJoke(review) {
+      console.log("this is the review id",review._id)
+      await fetch(`/api/reviews/${review._id}`, {
+        method: "DELETE",
+      });
+      mutate('/api/reviews')
+      // You are handing over the joke identified by its id to our DELETE request method.
+      // This is the entire code required to do so.
+
+      
+      
+      // data.push(`/reviews/${review._id}`);
+      // After deleting the joke, you route back to our index page.
+
+    }
+
   return (
     <div>
       <h3>Comments</h3>
@@ -57,12 +77,8 @@ export default function CommentsList({ reviews,id }) {
                 </div>
               </div>
               <div className="shrink-0 sm:flex sm:flex-col sm:items-end">
-                <p className="text-sm leading-6 text-gray-900">
-                  {review.rating}/5
-                </p>
-                <p className="mt-1 text-xs leading-5 text-gray-500">
-                  Rating{' '}
-                </p>
+              <button  type="button" onClick={() => handleDeleteJoke(review)} className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Delete</button>
+
               </div>
             </div>
           </li>

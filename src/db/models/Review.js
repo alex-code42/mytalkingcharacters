@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const reviewSchema = new Schema({
+  _id: { type: String  },
   title: { type: String  },
   text: { type: String, },
   rating: { type: Number },
@@ -14,3 +15,5 @@ const reviewSchema = new Schema({
 const Review = mongoose.models.Review || mongoose.model("Review", reviewSchema);
 
 export default Review;
+
+
