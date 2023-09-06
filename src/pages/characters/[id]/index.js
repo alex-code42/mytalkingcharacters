@@ -8,6 +8,7 @@ import CharacterCard from "@/components/CharacterCard";
 import CommentsList from "@/components/CommentList";
 import CommentForm from "@/components/CommentForm";
 import { SessionCommentForm } from "@/components/CommentForm";
+import Home from "@/components/Chatbot";
 
 
 
@@ -55,7 +56,8 @@ export default function Character() {
       width={1000}
       height={1000}
       className=" mx-auto"
-    />     
+    />   
+    <Home/>  
     <CharacterCard data={data}/>
     <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <SessionCommentForm slug={data.slug} id={data._id} />
