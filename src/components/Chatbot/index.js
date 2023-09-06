@@ -1,6 +1,9 @@
 import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
+import Image from "next/image";
+import loading from '/public/jim-carrey-jim-carrey-typing.gif'
+
 
 export default function Home() {
   const [animalInput, setAnimalInput] = useState("");
@@ -58,10 +61,15 @@ export default function Home() {
         {isLoading ? (
           <div className={styles.loading}>
             <br></br>
-            Typing...
+            <Image className="w-full rounded-lg" src={loading} alt="office content 1"/>
             </div>
         ) : (
-          <div className={styles.result}>{result}</div>
+          <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+            
+            <p class="text-2xl text-gray-900 dark:text-white">{result}</p>
+            
+            
+            </div>
         )}
       </main>
     </div>
