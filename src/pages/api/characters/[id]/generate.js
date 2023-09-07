@@ -4,7 +4,6 @@
 // This code is for v4 of the openai package: npmjs.com/package/openai
 import OpenAI from "openai";
 
-console.log(process.env.OPENAI_API_KEY);
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -24,7 +23,6 @@ console.log("huhu---->")
   //   });
   //   return;
   // }
-
   const animal = req.body.animal || '';
   if (animal.trim().length === 0) {
     res.status(400).json({
@@ -34,6 +32,7 @@ console.log("huhu---->")
     });
     return;
   }
+  const description = req.body.description
 
   try {
     const response = await openai.chat.completions.create({
@@ -42,7 +41,7 @@ console.log("huhu---->")
       messages: [
         {
           "role": "system",
-          "content": generatePrompt(animal)
+          "content": generatePrompt(animal,description)
         },
       ],
       temperature: 0.5,
@@ -52,11 +51,9 @@ console.log("huhu---->")
       presence_penalty: 0,
     });
 
-  console.log('RESPONSE --> ', JSON.stringify(response, null, 4));
  
   res.status(200).json(response.choices[0].message.content);
     
-    console.log("this is the completion",response)
   } catch(error) {
     // Consider adjusting the error handling logic for your use case
     if (error.result) {
@@ -74,9 +71,10 @@ console.log("huhu---->")
   }
 }
 
-function generatePrompt(animal) {
+function generatePrompt(animal,description) {
   const capitalizedAnimal =
     animal;
-    return `You are a very angry teenager that answers in short sentences and is always swearing with words like: "Damn" and "Yo Shit". Give always 1 detailed reason why you dont like things. ${capitalizedAnimal}
+  const myDescription = description
+    return `${myDescription} ${capitalizedAnimal}
    Job:`;
    }

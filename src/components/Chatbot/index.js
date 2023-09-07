@@ -5,21 +5,31 @@ import Image from "next/image";
 import loading from '/public/jim-carrey-jim-carrey-typing.gif'
 
 
-export default function Chatbot(id) {
+export default function Chatbot({id, initialDescription}) {
   const [animalInput, setAnimalInput] = useState("");
+  
+  const [description, setDescription] = useState(initialDescription); 
   const [result, setResult] = useState();
   const [isLoading, setIsLoading] = useState(false); // Add a loading state
   console.log("iam printing the Id in chatbot---->",id)
+
+  
   async function onSubmit(event) {
     event.preventDefault();
     setIsLoading(true); // Set isLoading to true when starting the request
+    console.log("animalInput--------->",animalInput)
+    console.log("Description--------->", description)
+    
+
+    
+
     try {
       const response = await fetch(`/api/characters/${id}/generate`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ animal: animalInput }),
+        body: JSON.stringify({ animal: animalInput, description }),
       });
 
       const data = await response.json();

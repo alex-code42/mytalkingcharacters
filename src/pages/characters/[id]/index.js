@@ -57,7 +57,7 @@ export default function Character() {
       height={1000}
       className=" mx-auto"
     />   
-    <Chatbot id={data._id}/>  
+    <Chatbot id={data._id} initialDescription={data.description}/>  
     <CharacterCard data={data}/>
     <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <SessionCommentForm slug={data.slug} id={data._id} />
