@@ -3,9 +3,10 @@
 import React from 'react';
 
 const ChatSteps = ({ result }) => {
+  console.log(result)
   // Split the result into separate steps using newline character '\n'
   const steps = result.split('\n');
-console.log(steps)
+console.log(result)
 
   // Create a preformatted text block to display the steps
  

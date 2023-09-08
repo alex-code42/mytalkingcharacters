@@ -23,8 +23,8 @@ console.log("huhu---->")
   //   });
   //   return;
   // }
-  const animal = req.body.animal || '';
-  if (animal.trim().length === 0) {
+  const userInput = req.body.animal || '';
+  if (userInput.trim().length === 0) {
     res.status(400).json({
       error: {
         message: "Please enter a valid input",
@@ -34,26 +34,40 @@ console.log("huhu---->")
   }
   const description = req.body.description
 
-  try {
-    const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
-      
-      messages: [
-        {
-          "role": "system",
-          "content": generatePrompt(animal,description)
-        },
-      ],
-      temperature: 0.5,
-      max_tokens: 256,
-      top_p: 1,
-      frequency_penalty: 0,
-      presence_penalty:0,
-      stop:["4"]
-    });
 
- 
+
+  try {
+  const conversation = [
+    {
+      role: "system",
+      content: description // Add your system message content here
+    },
+    {
+      role: "user",
+      content: userInput // Add the user's input here
+    }
+  ];
+
+  // Make the API call with the conversation history
+  const response = await openai.chat.completions.create({
+    model: "gpt-3.5-turbo",
+    messages: conversation,
+    temperature: 0.5,
+    max_tokens: 256,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
+    stop: ["4"]
+  });
+
+  // Append the assistant's response to the conversation
+  conversation.push({
+    role: "assistant",
+    content: response.choices[0].text
+  });
+  console.log("this is the conversation----->",conversation);
   res.status(200).json(response.choices[0].message.content);
+  console.log("this is the response-message---->>>>",response.choices[0].message);
     
   } catch(error) {
     // Consider adjusting the error handling logic for your use case
@@ -72,10 +86,10 @@ console.log("huhu---->")
   }
 }
 
-function generatePrompt(animal,description) {
-  const capitalizedAnimal =
-    animal;
-  const myDescription = description
-    return `${myDescription} ${capitalizedAnimal}
-   Job:`;
-   }
+// function generatePrompt(animal,description) {
+//   const capitalizedAnimal =
+//     animal;
+//   const myDescription = description
+//     return `${myDescription} ${capitalizedAnimal}
+//    Job:`;
+//    }
