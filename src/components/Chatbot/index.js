@@ -3,13 +3,14 @@ import { useState } from "react";
 import styles from "./index.module.css";
 import Image from "next/image";
 import loading from '/public/jim-carrey-jim-carrey-typing.gif'
+import ChatSteps from "./ChatSteps";
 
 
 export default function Chatbot({id, initialDescription}) {
   const [animalInput, setAnimalInput] = useState("");
   
   const [description, setDescription] = useState(initialDescription); 
-  const [result, setResult] = useState();
+  const [result, setResult] = useState("");
   const [isLoading, setIsLoading] = useState(false); // Add a loading state
   console.log("iam printing the Id in chatbot---->",id)
 
@@ -37,6 +38,7 @@ export default function Chatbot({id, initialDescription}) {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
       setResult(data);
+      
       setAnimalInput("");
     } catch (error) {
       // Consider implementing your own error handling logic here
@@ -46,7 +48,7 @@ export default function Chatbot({id, initialDescription}) {
       setIsLoading(false); // Set isLoading to false when the request is complete
     }
   }
-
+  console.log("this is the result in the form----->>>>",result)
   return (
     <div>
       <Head>
@@ -68,15 +70,16 @@ export default function Chatbot({id, initialDescription}) {
           <input type="submit" value="Chat with me" />
         </form>
         {/* Conditional rendering based on isLoading */}
+      
         {isLoading ? (
           <div className={styles.loading}>
             <br></br>
             <Image className="w-full rounded-lg" src={loading} alt="office content 1"/>
             </div>
         ) : (
-          <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="max-w-screen-l px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
             
-            <p class="text-2xl text-gray-900 dark:text-white">{result}</p>
+            <p><ChatSteps result={result} /></p>
             
             
             </div>

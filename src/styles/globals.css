@@ -7,3 +7,10 @@
   align-items: center;
 
 }
+.chat-preformatted {
+  /* font-family: 'Courier New', monospace;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ccc; */
+  /* Add any other CSS styles you want */
+}
