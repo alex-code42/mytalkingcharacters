@@ -56,34 +56,48 @@ export default function Chatbot({id, initialDescription}) {
         <link rel="icon" href="/dog.png" />
       </Head>
 
-      <main className={styles.main}>
-        {/* <img src="/dog.png" className={styles.icon} /> */}
-        <h3>Let's have a chat</h3>
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            name="animal"
-            placeholder="Type in here..."
-            value={animalInput}
-            onChange={(e) => setAnimalInput(e.target.value)}
-          />
-          <input type="submit" value="Chat with me" />
-        </form>
-        {/* Conditional rendering based on isLoading */}
-      
-        {isLoading ? (
+      {isLoading ? (
           <div className={styles.loading}>
             <br></br>
-            <Image className="w-full rounded-lg" src={loading} alt="office content 1"/>
+            <Image className="w-full rounded-lg " src={loading} alt="office content 1"/>
             </div>
         ) : (
-          <div className="max-w-screen-l px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
-            
-            <p><ChatSteps result={result} /></p>
-            
-            
+          <div className="max-w-screen-l bg-indigo-950 px-4 py-8 mb-12 mx-auto sm:py-12 sm:px-6 lg:px-8">
+             <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+             <p className="text-slate-100 px-6 mb-12"><ChatSteps result={result} /></p>
+          </blockquote>
+
             </div>
         )}
+
+
+      <main className="p-2 fixed bottom-0 left-0 z-50  w-full ">
+        {/* <img src="/dog.png" className={styles.icon} /> */}
+        
+
+          <form onSubmit={onSubmit} className="">
+              <label for="chat" class="sr-only">Your message</label>
+              <div class="flex items-center px-3 py-5 -mb-2 bg-indigo-950 rounded-lg bg-gray-50 dark:bg-gray-700">
+                  
+                  <button type="button" class="p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+            
+                      <span class="sr-only">Add emoji</span>
+                  </button>
+                  <input id="chat" type="text"name="animal" value={animalInput}
+            onChange={(e) => setAnimalInput(e.target.value)} rows="1" class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your message..."></input>
+                      <button type="submit" class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600">
+                      <svg class="w-5 h-5 rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                          <path d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z"/>
+                      </svg>
+                      <span class="sr-only">Send message</span>
+                  </button>
+              </div>
+          </form>
+
+
+
+      
+
       </main>
     </div>
   );

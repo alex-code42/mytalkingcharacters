@@ -47,22 +47,23 @@ export default function Character() {
   // `/public/characters/${data.slug}.png`
 
   return (
-    <div >
+    <div className="bg-indigo-950">
     <Navbar />
     
     <Image  
       src={mypic}
       alt="Picture of rose"
-      width={1000}
-      height={1000}
-      className=" mx-auto"
+      width={250}
+      height={250}
+      className=" mx-auto mx-auto h-30 w-30 mt-8 rounded-full"
+      
     />   
-    <Chatbot id={data._id} initialDescription={data.description}/>  
-    <CharacterCard data={data}/>
+    <Chatbot id={data._id} initialDescription={data.description} />  
+    {/* <CharacterCard data={data}/>
     <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <SessionCommentForm slug={data.slug} id={data._id} />
         <CommentsList reviews={data.reviews} id={data._id}/>
-    </div>
+    </div> */}
     
 
   </div>

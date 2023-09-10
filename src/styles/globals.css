@@ -5,6 +5,7 @@
 :root {
   list-style-type: none;
   align-items: center;
+  background-color: rgb(30 27 75);
 
 }
 .chat-preformatted {
