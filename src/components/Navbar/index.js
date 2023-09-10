@@ -11,7 +11,7 @@ const navigation = [
   { name: 'Home', href: '/', current: true },
   { name: 'Characters', href: '/characters/', current: false },
   { name: 'Create', href: '/create/', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  
 ]
 
 function classNames(...classes) {
@@ -106,7 +106,7 @@ export default function Example() {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="/profile"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             {/* {session.name} */}
