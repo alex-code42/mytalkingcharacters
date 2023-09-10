@@ -16,12 +16,12 @@ export default function CharacterList() {
   console.log("mydata_in_characters",data);
   return (
     <>
-    <div className="flex flex-wrap gap-x-8 gap-y-4 justify-center " >
+    <div className="flex flex-wrap gap-x-8 gap-y-4 justify-center  " >
 
 
         {data.map((character) => (
           <li key={character._id}>
-        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div className="max-w-sm bg-white border border-gray-200  rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <Link href={`/characters/${character._id}`}>
                 <Image
                 src={mypic}
@@ -32,7 +32,7 @@ export default function CharacterList() {
                 alt="Picture of the author"
                 />
             </Link>
-            <div className="p-5">
+            <div className="p-5 ">
                 <Link href="#">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{character.name}</h5>
                 </Link>

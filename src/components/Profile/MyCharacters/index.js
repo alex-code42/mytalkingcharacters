@@ -1,117 +1,159 @@
-import Link from 'next/link';
+import mypic from '/public/chatbot_logo.png'
+import Image from 'next/image'
+import { Fragment } from 'react'
+import { Menu, Transition } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
-export default function MyCreatedCharacters(){
-    const products = [
-        {
-          id: 1,
-          name: 'Earthen Bottle',
-          href: '#',
-          price: '$48',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-          imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-        },
-        {
-          id: 2,
-          name: 'Nomad Tumbler',
-          href: '#',
-          price: '$35',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
-          imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
-        },
-        {
-          id: 3,
-          name: 'Focus Paper Refill',
-          href: '#',
-          price: '$89',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
-          imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
-        },
-        {
-          id: 4,
-          name: 'Machined Mechanical Pencil',
-          href: '#',
-          price: '$35',
-          imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-          imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
-        }
-    ]
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
 
-    return(
-        <div>
-<div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
-            <div className="h-32 rounded-lg bg-gray-100 lg:col-span-2">
-            <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="sr-only">Products</h2>
+const people = [
+  {
+    name: 'Bot 1',
+    role: 'Co-Founder / CEO',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  },
+  {
+    name: 'Bot 2',
+    role: 'Co-Founder / CEO',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  },
+  {
+    name: 'Bot 3',
+    role: 'Co-Founder / CEO',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  },
+  {
+    name: 'Bot 4',
+    role: 'Co-Founder / CEO',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  },
+  // More people...
+]
 
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {products.map((product) => (
-            <a key={product.id} href={product.href} className="group">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                <img
-                  src={product.imageSrc}
-                  alt={product.imageAlt}
-                  className="h-full w-full object-cover object-center group-hover:opacity-75"
-                />
-              </div>
-              <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
-            </a>
-          ))}
+export default function MyProfileCharacters() {
+  return (
+    <div className="rounded-2xl border border-indigo-400 p-6 my-8 mx-8  shadow-xl ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12">
+      <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
+      <Dropdown/>
+      
+      
+      
+      
+      <Image
+                src={mypic}
+                width={500}
+                height={500}
+                quality={65}
+                className=" h-24 w-24 rounded-full mt-8 border mx-auto border-indigo-400 drop-shadow-xl"
+                alt="Picture of the author"
+                />        
+
+        <div className="max-w-2xl">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl">Chat wit your Bots</h2>
+          
         </div>
+        <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2  ">
+          {people.map((person) => (
+            <li key={person.name}>
+              <div className="flex items-center gap-x-6 ">
+                <img className="h-16 w-16 rounded-full" src={person.imageUrl} alt="" />
+                <div>
+                  <h3 className="text-base font-semibold leading-7 tracking-tight text-slate-100">{person.name}</h3>
+                  <p className="text-sm font-semibold leading-6 text-indigo-400 ">{person.role}</p>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
-            </div>
-            <div className="h-32 rounded-lg bg-gray-100">
-            <a href="#" class="group relative block overflow-hidden">
-  <button
-    class="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75"
-  >
-    <span class="sr-only">Wishlist</span>
+  )
+}
 
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="currentColor"
-      class="h-4 w-4"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-      />
-    </svg>
-  </button>
+export function Dropdown() {
+  return (
+    <Menu as="div" className="inline-block text-left">
+      <div>
+        <Menu.Button className="bg-transparent hover:bg-blue-500 text-slate-100 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+          Create
+          <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
+        </Menu.Button>
+      </div>
 
-  <img
-    src="https://images.unsplash.com/photo-1599481238640-4c1288750d7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80"
-    alt=""
-    class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
-  />
-
-  <div class="relative border border-gray-100 bg-white p-6">
-  
-
-    <h3 class="mt-4 text-lg font-medium text-gray-900">Welcome Back Robert</h3>
-
-    <p class="mt-1.5 text-sm text-gray-700">Ready to create?</p>
-
-    <form class="mt-4">
-      <button href="/create"
-        class="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105"
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
       >
-        Create new Character
-      </button>
-    </form>
-  </div>
-</a>
-            </div>
-        </div>
-
-
-
-        </div>
-    )
+        <Menu.Items className="absolute left-25 z-10 mt-2 w-56 origin-top-right rounded-md bg-transparent shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div className="py-1">
+            <Menu.Item>
+              {({ active }) => (
+                <a
+                  href="/create"
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-slate-100',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                  Create Characters
+                </a>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <a
+                  href="#"
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-slate-100',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                  Create a Chatroom
+                </a>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <a
+                  href="#"
+                  className={classNames(
+                    active ? 'bg-gray-300 text-gray-900' : 'text-slate-100',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                  Edit Character
+                </a>
+              )}
+            </Menu.Item>
+            <form method="POST" action="#">
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    type="submit"
+                    className={classNames(
+                      active ? 'bg-gray-100 text-gray-900' : 'text-slate-100',
+                      'block w-full px-4 py-2 text-left text-sm'
+                    )}
+                  >
+                    Settings
+                  </button>
+                )}
+              </Menu.Item>
+            </form>
+          </div>
+        </Menu.Items>
+      </Transition>
+    </Menu>
+  )
 }

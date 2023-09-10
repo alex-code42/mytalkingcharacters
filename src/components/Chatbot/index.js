@@ -59,10 +59,12 @@ export default function Chatbot({id, initialDescription}) {
       {isLoading ? (
           <div className={styles.loading}>
             <br></br>
-            <Image className="w-full rounded-lg " src={loading} alt="office content 1"/>
+            <blockquote className="text-center text-slate-100 text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+             I am typing... Please wait a bit
+            </blockquote>
             </div>
         ) : (
-          <div className="max-w-screen-l bg-indigo-950 px-4 py-8 mb-12 mx-auto sm:py-12 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-indigo-400 p-6 my-8 mx-8  shadow-xl ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12">
              <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
              <p className="text-slate-100 px-6 mb-12"><ChatSteps result={result} /></p>
           </blockquote>
@@ -77,7 +79,7 @@ export default function Chatbot({id, initialDescription}) {
 
           <form onSubmit={onSubmit} className="">
               <label for="chat" class="sr-only">Your message</label>
-              <div class="flex items-center px-3 py-5 -mb-2 bg-indigo-950 rounded-lg bg-gray-50 dark:bg-gray-700">
+              <div class="flex items-center px-3 py-5 -mb-2 bg-indigo-950 rounded-lg bg-gray-50 dark:bg-gray-700 rounded-2xl border border-indigo-400">
                   
                   <button type="button" class="p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
             
