@@ -36,8 +36,7 @@ export default function Home() {
     <Navbar/>
     <HeroSection/>
     <ContentSection1/>
-      
-        <LoginComponent/>
+    <LoginComponent/>
 
     </div>
   );
