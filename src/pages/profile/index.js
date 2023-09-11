@@ -4,7 +4,9 @@ import Navbar from '@/components/Navbar';
 import MyProfile from "@/components/Profile";
 import LoginComponent from "../login";
 import { useSession, signIn, signOut } from "next-auth/react"
-
+import mypic from '/public/chatbot_logo.png'
+import Image from "next/image";
+import Link from "next/link";
 
 
 import React from "react";
@@ -29,14 +31,37 @@ export function MyOwnCharacterList() {
     console.error('Error fetching data:', error);
   }
   console.log("Here is my data on Characters", data);
+  console.log("This is the email",userEmail);
   console.log("Hello from the page");
+  const filteredCharacters = data?.filter((_id) => _id.userId === userEmail);
+  console.log(filteredCharacters);
 
   return (
-    <div>
-        <h2>Hallooooo</h2>
-      {/* Render your character list here */}
+    <div className="rounded-2xl border border-indigo-400 p-6 my-8 mx-8  shadow-xl ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12" >
+              <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2  ">
+          {filteredCharacters?.map((character) => (
+            <li key={character._id}>
+              <div className="flex items-center gap-x-6 ">
+              <Link href={`/characters/${character._id}`}>
+                <Image
+                src={mypic}
+                width={200}
+                height={200}
+                quality={65}
+                className="rounded-t-lg"
+                alt="Picture of the author"
+                />
+            </Link>
+                <div>
+                  <h3 className="text-base font-semibold leading-7 tracking-tight text-slate-100">{character.name}</h3>
+                  <p className="text-sm font-semibold leading-6 text-indigo-400 ">{character.description.substr(0, 30)}</p>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
     </div>
-  );
+  )
 }
 
 
