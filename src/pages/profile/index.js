@@ -11,6 +11,10 @@ import React from "react";
 import useSWR from "swr";
 
 export function MyOwnCharacterList() {
+
+    const { data: session, status } = useSession()
+  const userEmail = session?.user?.email
+  console.log("This is the email",userEmail);
   const fetcher = async (url) => {
     const response = await fetch(url);
     if (!response.ok) {
@@ -29,6 +33,7 @@ export function MyOwnCharacterList() {
 
   return (
     <div>
+        <h2>Hallooooo</h2>
       {/* Render your character list here */}
     </div>
   );
@@ -51,8 +56,8 @@ export default function MyProfilePage() {
     return (
       <>
       <Navbar/>
-      <MyProfile session={session}/>
-      <MyOwnCharacterList/>
+      <MyProfile session={session} />
+      <MyOwnCharacterList />
         </>
     )
   }

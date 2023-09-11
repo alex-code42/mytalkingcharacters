@@ -4,6 +4,7 @@ import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { useRouter } from "next/router";
+import Link from 'next/link'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -67,7 +68,14 @@ export default function MyProfile({session}) {
           {people.map((person) => (
             <li key={person.name}>
               <div className="flex items-center gap-x-6 ">
-                <img className="h-16 w-16 rounded-full" src={person.imageUrl} alt="" />
+              <Image
+                src={mypic}
+                width={500}
+                height={500}
+                quality={65}
+                className=" h-24 w-24 rounded-full mt-8 border mx-auto border-indigo-400 drop-shadow-xl"
+                alt="Picture of the author"
+                /> 
                 <div>
                   <h3 className="text-base font-semibold leading-7 tracking-tight text-slate-100">{person.name}</h3>
                   <p className="text-sm font-semibold leading-6 text-indigo-400 ">{person.role}</p>
