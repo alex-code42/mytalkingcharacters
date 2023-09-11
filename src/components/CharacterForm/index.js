@@ -14,14 +14,14 @@ export default function Form({onSubmit, formName, defaultData }) {
         <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-slate-100">{formName}</h2>
           <p className="mt-1 text-sm leading-6 text-slate-100">
-            This information will be displayed publicly so be careful what you share.
+            Your ultimate Bot
           </p>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
 
 
-            <div className="col-span-full">
+            {/* <div className="col-span-full">
               <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-slate-100">
                 Character Foto
               </label>
@@ -30,18 +30,18 @@ export default function Form({onSubmit, formName, defaultData }) {
                   <PhotoIcon className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" />
                   <div className="mt-4 flex text-sm leading-6 text-gray-600">
                     <label
-                      htmlFor="file-upload"
-                      className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                      htmlFor="img"
+                      className="relative cursor-pointer rounded-md bg-white font-semibold px-1 mx-1 text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                     >
                       <span>Upload a file</span>
-                      <input id="file-upload" name="file-upload" type="file" className="sr-only" />
+                      <input id="img" name="img" type="file" className="sr-only" />
                     </label>
-                    <p className="pl-1">or drag and drop</p>
+                    <p className="pl-1 text-slate-100">or drag and drop</p>
                   </div>
                   <p className="text-xs leading-5 text-slate-100">PNG, JPG, GIF up to 10MB</p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -58,78 +58,26 @@ export default function Form({onSubmit, formName, defaultData }) {
                 <input
                   type="text"
                   name="name"
+                  placeholder="Gandalf the White"
                   id="name"
                   defaultValue={defaultData?.name}
-                 
-                 
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
-
-            <div className="sm:col-span-3">
-              <label htmlFor="attack" className="block text-sm font-medium leading-6 text-gray-900">
-              Attack
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="attack"
-                  id="attack"
-                  defaultValue={defaultData?.attack}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
 
             <div className="col-span-full">
-              
-            <label htmlFor="comparison" className="block mb-2 text-sm font-medium text-slate-100 dark:text-white">Comparison</label>
-            <textarea id="comparison" defaultValue={defaultData?.leavingbehindtrail} name='comparison' rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
-
+            <label htmlFor="description" className="block mb-2 text-sm font-medium text-slate-100 dark:text-white" >Description</label>
+            <textarea id="description" defaultValue={defaultData?.description} name='description' rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="You are Gandalf the White..."></textarea>
             </div>
 
-            <div className="sm:col-span-2 sm:col-start-1">
-            <label htmlFor="description" className="block mb-2 text-sm font-medium text-slate-100 dark:text-white">Description</label>
-            <textarea id="description" defaultValue={defaultData?.leavingbehindtrail} name='description' rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
-            </div>
 
-            <div className="sm:col-span-2">
-              <label htmlFor="leavingbehindtrail" className="block text-sm font-medium leading-6 text-slate-100">
-                Leaving no trail behind
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="leavingbehindtrail"
-                  id="leavingbehindtrail"
-                  defaultValue={defaultData?.leavingbehindtrail}
-                  className="block w-full rounded-md border-0 py-1.5 text-slate-100 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div className="sm:col-span-2">
-              <label htmlFor="zodiac" className="block text-sm font-medium leading-6 text-gray-900">
-                Zodiac
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="zodiac"
-                  id="zodiac"
-                  defaultValue={defaultData?.zodiac}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
           </div>
         </div>
 
         <div className="border-b border-gray-900/10 pb-12">
-          <h2 className="text-base font-semibold leading-7 text-gray-900">When everything is fine</h2>
-          <p className="mt-1 text-sm leading-6 text-gray-600">
+          <h2 className="text-slate-100 font-semibold leading-7 text-gray-900">When everything is fine</h2>
+          <p className="mt-1 text-slate-100 leading-6 text-gray-600">
           You will see the character          </p>
 
 
