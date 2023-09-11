@@ -17,12 +17,18 @@ export default function createCharacterPage() {
    
       const formData = new FormData(event.target)
       const characterData = Object.fromEntries(formData)
+
+      
+      
+      characterData.userId = session.user.email;
+      characterData.published = false;
+
+      console.log("This is the character.data---->",characterData)
       const response = await fetch("/api/characters", {
+        
         method: "POST",
         body: JSON.stringify({
           characterData,
-          userId: session.user.id,
-          published: false,
           }),
         headers: {
           "Content-Type": "application/json",
