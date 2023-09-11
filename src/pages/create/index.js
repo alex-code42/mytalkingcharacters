@@ -27,9 +27,9 @@ export default function createCharacterPage() {
       const response = await fetch("/api/characters", {
         
         method: "POST",
-        body: JSON.stringify({
+        body: JSON.stringify(
           characterData,
-          }),
+          ),
         headers: {
           "Content-Type": "application/json",
         },

@@ -4,18 +4,12 @@ import "./Review";
 const { Schema } = mongoose;
 
 const characterSchema = new Schema({
-  name: { type: String, required: true },
-  description: { type: String, required: true },
-  weaknesses: { type: String},
-  comparison: { type: String},
-  attack: { type: String},
-  leavingbehindtrail: { type: String},
-  zodiac: { type: String},
-  img: { type: String },
+  name: { type: String },
+  description: { type: String},
+  // img: { type: String },
   mapURL: { type: String},
-  slug: { type: String},
-  reviews: { type: [Schema.Types.ObjectId], ref: "Review" },
-  userId: { type: String, required: true  },
+  reviews: [{ type: [Schema.Types.ObjectId], ref: "Review" }],
+  userId: { type: String  },
   published: { type: Boolean },
 });
 // console.log("big Place",Place);
