@@ -6,9 +6,8 @@ const reviewSchema = new Schema({
   _id: { type: String  },
   title: { type: String  },
   text: { type: String, },
-  rating: { type: Number },
   characterId: { type: String },
-  userId: { type: String },
+  userId: { type: String, required: true  },
   // characterId: { type: [Schema.Types.ObjectId], ref: "Character" },
 });
 
