@@ -7,10 +7,31 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import mypic from '/public/chatbot_logo.png'
 import Image from "next/image";
 import Link from "next/link";
-
-
 import React from "react";
 import useSWR from "swr";
+import { useRouter } from "next/router";
+
+export function DeleteCard(){
+  
+    const router = useRouter();
+    const { isReady } = router;
+    const { id } = router.query;
+  
+    const { data: character, isLoading, error } = useSWR(`/api/characters/${id}`);
+  
+    if (!isReady || isLoading || error) return <h2>Loading...</h2>;
+  
+    async function deleteCharacter() {
+      console.log("delete BUtton pushed")
+      await fetch(`/api/characters/${id}`, {
+        method: "DELETE",
+      });
+      // You are handing over the joke identified by its id to our DELETE request method.
+      // This is the entire code required to do so.
+      router.push("/characters/");
+      // After deleting the joke, you route back to our index page.
+    }}
+
 
 export function MyOwnCharacterList() {
 
@@ -51,6 +72,17 @@ export function MyOwnCharacterList() {
                 className="rounded-t-lg"
                 alt="Picture of the author"
                 />
+            </Link>
+            <Link href={`/characters/${character._id}/edit`}>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Edit
+            </button>
+                    <button onClick={DeleteCard}
+                type="button"
+                className="m-5 rounded-md bg-red-600  px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                Delete
+                </button>
             </Link>
                 <div>
                   <h3 className="text-base font-semibold leading-7 tracking-tight text-slate-100">{character.name}</h3>
