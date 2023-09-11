@@ -15,6 +15,8 @@ const characterSchema = new Schema({
   mapURL: { type: String},
   slug: { type: String},
   reviews: { type: [Schema.Types.ObjectId], ref: "Review" },
+  userId: { type: String, required: true  },
+  published: { type: Boolean },
 });
 // console.log("big Place",Place);
 const Character = mongoose.models.Character || mongoose.model("Character", characterSchema);

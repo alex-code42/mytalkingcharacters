@@ -1,11 +1,16 @@
 import Form from "@/components/CharacterForm";
 import Navbar from "@/components/Navbar";
 import useSWR from "swr";
+import LoginComponent from "../login";
+
+import { useSession, signIn, signOut } from "next-auth/react"
 
 
-export default function createCharacterPage(){
+export default function createCharacterPage() {
+  const { data: session, status } = useSession()
+  const userEmail = session?.user?.email
 
-    const characters = useSWR("/api/characters");
+  const characters = useSWR("/api/characters");
 
     async function addCharacter(event) {
       event.preventDefault()
@@ -14,20 +19,15 @@ export default function createCharacterPage(){
       const characterData = Object.fromEntries(formData)
       const response = await fetch("/api/characters", {
         method: "POST",
-        body: JSON.stringify(characterData),
+        body: JSON.stringify({
+          characterData,
+          userId: session.user.id,
+          published: false,
+          }),
         headers: {
           "Content-Type": "application/json",
         },
       });
-      // Here we're using the API route we've built earlier.
-      // We're declaring a response returning a promise while we're posting to our database.
-  
-      // Here we're using fetch and not swr, because swr is for data fetching, and not data mutation.
-      // ... but we can notify swr about data changes using the mutate function! (See below.)
-  
-      // Our method is post, the body contains our jokeData JSON, and our header provides additional information about the data we're sending.
-  
-      // Our joke is on its way!
   
       if (response.ok) {
         // If our attempt at posting our joke is a success, we proceed here.
@@ -43,11 +43,26 @@ export default function createCharacterPage(){
     }
   
 
+  if (status === "loading") {
+    return <p>Hang on there...</p>
+  }
 
-    return(
-        <>
-            <Navbar/>
-            <Form onSubmit={addCharacter} formName={"Create Character"}/>
-        </>
+  if (status === "authenticated") {
+    return (
+      <>
+      <Navbar/>
+      <Form onSubmit={addCharacter} formName={"Create Character"}/>
+      </>
     )
+  }
+
+  return (
+    <>
+    <Navbar/>
+      <LoginComponent/>
+        
+    </>
+  )
 }
+
+
