@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { useRouter } from "next/router";
+import Link from 'next/link'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -36,8 +38,12 @@ const people = [
   // More people...
 ]
 
-export default function MyProfileCharacters() {
+
+
+export default function MyProfile({session}) {
+  console.log("this is the session in profile",session.user.name);
   return (
+    
     <div className="rounded-2xl border border-indigo-400 p-6 my-8 mx-8  shadow-xl ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12">
       <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
       <Dropdown/>
@@ -55,14 +61,21 @@ export default function MyProfileCharacters() {
                 />        
 
         <div className="max-w-2xl">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl">Chat wit your Bots</h2>
-          
+          <h2 className="text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl">Hi, {session.user.name}</h2>
+          <h4 className="text-base font-bold tracking-tight text-slate-100 sm:text-base">Lets have a Chat</h4>
         </div>
         <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2  ">
           {people.map((person) => (
             <li key={person.name}>
               <div className="flex items-center gap-x-6 ">
-                <img className="h-16 w-16 rounded-full" src={person.imageUrl} alt="" />
+              <Image
+                src={mypic}
+                width={500}
+                height={500}
+                quality={65}
+                className=" h-24 w-24 rounded-full mt-8 border mx-auto border-indigo-400 drop-shadow-xl"
+                alt="Picture of the author"
+                /> 
                 <div>
                   <h3 className="text-base font-semibold leading-7 tracking-tight text-slate-100">{person.name}</h3>
                   <p className="text-sm font-semibold leading-6 text-indigo-400 ">{person.role}</p>

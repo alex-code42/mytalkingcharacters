@@ -16,6 +16,7 @@ export default async function handler(request, response) {
       // We're declaring jokeData to contain the body of our request sent by our form that we haven't created yet.
       // The body of our request might contain data in a variety of formats, but is typically an object.
       const character = new Character(characterData);
+      console.log("This is the Character before save",character)
       // Utilizing our Joke scheme, we're creating a new joke.
       // At this point we're sanitizing our data according to the schema of our Joke model.
       await character.save();
