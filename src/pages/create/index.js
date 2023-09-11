@@ -20,7 +20,7 @@ export default function createCharacterPage() {
 
       
       
-      characterData.userId = session.user.email;
+      characterData.userId = session.user.id;
       characterData.published = false;
 
       console.log("This is the character.data---->",characterData)

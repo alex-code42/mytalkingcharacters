@@ -37,12 +37,12 @@ export default function HeroSection(){
 
               <div className="mt-3">
                 <h3
-                  className="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4"
+                  className="font-medium text-slate-100 group-hover:underline group-hover:underline-offset-4"
                 >
                   The Alchemist
                 </h3>
 
-                <p className="mt-1 text-sm text-gray-700">The smart one</p>
+                <p className="mt-1 text-sm text-slate-100">The smart one</p>
               </div>
             </a>
           </li>
@@ -55,12 +55,12 @@ export default function HeroSection(){
 
               <div className="mt-3">
                 <h3
-                  className="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4"
+                  className="font-medium text-slate-100 group-hover:underline group-hover:underline-offset-4"
                 >
                   Other Bot
                 </h3>
 
-                <p className="mt-1 text-sm text-gray-700">Super smart one</p>
+                <p className="mt-1 text-sm text-slate-100">Super smart one</p>
               </div>
             </a>
           </li>

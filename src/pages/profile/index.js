@@ -15,8 +15,8 @@ import useSWR from "swr";
 export function MyOwnCharacterList() {
 
     const { data: session, status } = useSession()
-  const userEmail = session?.user?.email
-  console.log("This is the email",userEmail);
+  const userId = session?.user?.id
+  console.log("This is the userId",userId);
   const fetcher = async (url) => {
     const response = await fetch(url);
     if (!response.ok) {
@@ -31,9 +31,9 @@ export function MyOwnCharacterList() {
     console.error('Error fetching data:', error);
   }
   console.log("Here is my data on Characters", data);
-  console.log("This is the email",userEmail);
+ 
   console.log("Hello from the page");
-  const filteredCharacters = data?.filter((_id) => _id.userId === userEmail);
+  const filteredCharacters = data?.filter((id) => id.userId === userId);
   console.log(filteredCharacters);
 
   return (
