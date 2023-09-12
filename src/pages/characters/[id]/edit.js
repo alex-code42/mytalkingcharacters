@@ -14,6 +14,8 @@ export default function EditPage() {
 
   const { data: session, status } = useSession()
 
+  // console.log("This is the Session---><<<>>",session.user.id);
+
   
 
   const fetcher = async (url) => {
@@ -35,7 +37,7 @@ export default function EditPage() {
   if (error) {
     console.error('Error fetching data:', error);
   }
-  console.log("Here is my data on Characters", data);
+  console.log("Here is my data on Characters in the Session--->>>", data?.userId);
 
 
   const { trigger, isMutating } = useSWRMutation(
@@ -74,7 +76,7 @@ export default function EditPage() {
   }
   // console.log('Character edited-------->><<>>', character);
 
-  if (status === "authenticated") {
+  if (status === "authenticated" && session.user.id == data?.userId) {
 
  
 
@@ -92,30 +94,28 @@ export default function EditPage() {
         } 
         return(
           <>
-
-          <div className="mx-auto w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <div className="flex justify-end px-4 pt-4">
-                  
-          
-              </div>
-              <div className="flex flex-col items-center pb-10">
-              <Image
-                      src={mypic2}
-                      alt="Picture of the author"
-                      width={80}
-                      height={80}
-                      className=" mx-auto"
-                />
-              
-                    <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">{session?.user.name}</h5>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">Please log in</span>
-                  <div className="flex mt-4 space-x-3 md:mt-6">
-                  <button onClick={() => signIn()} type="button" className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Sign In</button>
-                  </div>
-              </div>
-          </div>
-          
-              
+              <Navbar/>
+            
+<div className="lg:px-24 lg:py-24 md:py-20 md:px-44 px-4 py-24 items-center flex justify-center flex-col-reverse lg:flex-row md:gap-28 gap-16">
+            <div className="xl:pt-24 w-full xl:w-1/2 relative pb-12 lg:pb-0">
+                <div className="relative">
+                    <div className="absolute">
+                        <div className="">
+                            <h1 className="my-2 text-gray-800 font-bold text-2xl">
+                                
+                            </h1>
+                            <p className="my-2 text-gray-800"></p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://i.ibb.co/G9DC8S0/404-2.png" />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="https://i.ibb.co/ck1SGFJ/Group.png" />
+            </div>
+        </div>
               </>
         )
 }
