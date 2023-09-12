@@ -102,18 +102,18 @@ export default function EditPage() {
                     <div className="absolute">
                         <div className="">
                             <h1 className="my-2 text-gray-800 font-bold text-2xl">
-                                
+                                hallo
                             </h1>
                             <p className="my-2 text-gray-800"></p>
                         </div>
                     </div>
                     <div>
-                        <img src="https://i.ibb.co/G9DC8S0/404-2.png" />
+                        404
                     </div>
-                </div>
+                </div>  
             </div>
             <div>
-                <img src="https://i.ibb.co/ck1SGFJ/Group.png" />
+                404
             </div>
         </div>
               </>
