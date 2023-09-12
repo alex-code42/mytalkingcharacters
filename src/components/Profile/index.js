@@ -64,7 +64,7 @@ export function Dropdown() {
               {({ active }) => (
                 <a
                   href="/create"
-                  className={classNames(
+                  className={(
                     active ? 'bg-gray-100 text-gray-900' : 'text-slate-100',
                     'block px-4 py-2 text-sm'
                   )}
@@ -77,7 +77,7 @@ export function Dropdown() {
               {({ active }) => (
                 <a
                   href="#"
-                  className={classNames(
+                  className={(
                     active ? 'bg-gray-100 text-gray-900' : 'text-slate-100',
                     'block px-4 py-2 text-sm'
                   )}
@@ -90,8 +90,8 @@ export function Dropdown() {
               {({ active }) => (
                 <a
                   href="#"
-                  className={classNames(
-                    active ? 'bg-gray-300 text-gray-900' : 'text-slate-100',
+                  className={(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-slate-100',
                     'block px-4 py-2 text-sm'
                   )}
                 >
@@ -104,7 +104,7 @@ export function Dropdown() {
                 {({ active }) => (
                   <button
                     type="submit"
-                    className={classNames(
+                    className={(
                       active ? 'bg-gray-100 text-gray-900' : 'text-slate-100',
                       'block w-full px-4 py-2 text-left text-sm'
                     )}
