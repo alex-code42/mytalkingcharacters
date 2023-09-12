@@ -6,37 +6,6 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { useRouter } from "next/router";
 import Link from 'next/link'
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
-const people = [
-  {
-    name: 'Bot 1',
-    role: 'Co-Founder / CEO',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-  {
-    name: 'Bot 2',
-    role: 'Co-Founder / CEO',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-  {
-    name: 'Bot 3',
-    role: 'Co-Founder / CEO',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-  {
-    name: 'Bot 4',
-    role: 'Co-Founder / CEO',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-  // More people...
-]
 
 
 
@@ -95,7 +64,7 @@ export function Dropdown() {
               {({ active }) => (
                 <a
                   href="/create"
-                  className={classNames(
+                  className={(
                     active ? 'bg-gray-100 text-gray-900' : 'text-slate-100',
                     'block px-4 py-2 text-sm'
                   )}
@@ -108,7 +77,7 @@ export function Dropdown() {
               {({ active }) => (
                 <a
                   href="#"
-                  className={classNames(
+                  className={(
                     active ? 'bg-gray-100 text-gray-900' : 'text-slate-100',
                     'block px-4 py-2 text-sm'
                   )}
@@ -121,8 +90,8 @@ export function Dropdown() {
               {({ active }) => (
                 <a
                   href="#"
-                  className={classNames(
-                    active ? 'bg-gray-300 text-gray-900' : 'text-slate-100',
+                  className={(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-slate-100',
                     'block px-4 py-2 text-sm'
                   )}
                 >
@@ -135,7 +104,7 @@ export function Dropdown() {
                 {({ active }) => (
                   <button
                     type="submit"
-                    className={classNames(
+                    className={(
                       active ? 'bg-gray-100 text-gray-900' : 'text-slate-100',
                       'block w-full px-4 py-2 text-left text-sm'
                     )}

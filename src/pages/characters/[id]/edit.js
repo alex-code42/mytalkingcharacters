@@ -8,14 +8,28 @@ import Navbar from "@/components/Navbar";
 
 export default function EditPage() {
 
+  const fetcher = async (url) => {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  };
  
   const router = useRouter();
   const { isReady, push } = router;
   const { id } = router.query;
 
   console.log("this is the id in [EDIT]",id)
-  const { data: character, isLoading, error } = useSWR(`/api/characters/${id}`);
-  console.log("this is the character in edit",character);
+
+  const { data, error } = useSWR(`/api/characters/${id}`, fetcher);
+
+  if (error) {
+    console.error('Error fetching data:', error);
+  }
+  console.log("Here is my data on Characters", data);
+
+
   const { trigger, isMutating } = useSWRMutation(
     `/api/characters/${id}`,
     sendRequest
@@ -50,7 +64,7 @@ export default function EditPage() {
       console.error(`Error: ${response.status}`);
     }
   }
-  console.log('Character edited', character);
+  // console.log('Character edited-------->><<>>', character);
 
       
 
@@ -60,7 +74,7 @@ export default function EditPage() {
     return (
       <>
           <Navbar/>
-          <Form onSubmit={handleEditCharacter} formName={'Edit Character'} defaultData={character} />
+          <Form onSubmit={handleEditCharacter} formName={'Edit Character'} defaultData={data} />
           </>
             )
           }
