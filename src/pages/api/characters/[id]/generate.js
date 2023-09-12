@@ -1,6 +1,8 @@
 
+const { MongoClient } = require("mongodb");
 
-
+import dbConnect from "@/db/connect";
+import Conversation from "@/db/models/Conversation";
 // This code is for v4 of the openai package: npmjs.com/package/openai
 import OpenAI from "openai";
 
@@ -33,6 +35,7 @@ console.log("huhu---->")
     return;
   }
   const description = req.body.description
+  const id = req.body.id
 
 
 
@@ -47,6 +50,8 @@ console.log("huhu---->")
       content: userInput // Add the user's input here
     }
   ];
+
+// hier kommt der request
 
   // Make the API call with the conversation history
   const response = await openai.chat.completions.create({
@@ -65,8 +70,37 @@ console.log("huhu---->")
     role: "assistant",
     content: response.choices[0].text
   });
-  console.log("this is the conversation----->",conversation);
-  res.status(200).json(response.choices[0].message.content);
+
+  try {
+    
+
+    const db = await dbConnect()
+    
+
+    // Insert a conversation
+    const newCollectionItem = await new Conversation({
+      character: id,
+      user: "hier kommt noch die userId hin",
+      answer: response.choices[0].message.content,
+      question: userInput,
+      timestamp: new Date(),
+    });
+    await newCollectionItem.save()
+
+     // Query conversations order by Timestamp
+     const conversations = await Conversation.find({ character: id }); // Assuming you have a Mongoose model named 'Conversation'
+     // Now you can filter the conversations based on your condition
+     console.log("These are the conversations-xxx-->>", conversations);
+     res.status(200).json(conversations);
+     
+     
+   } finally {
+    //  client.close();
+   }
+
+
+  
+  
   console.log("this is the response-message---->>>>",response.choices[0].message);
     
   } catch(error) {

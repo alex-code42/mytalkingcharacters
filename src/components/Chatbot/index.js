@@ -6,6 +6,7 @@ import loading from '/public/jim-carrey-jim-carrey-typing.gif'
 import ChatSteps from "./ChatSteps";
 
 
+
 export default function Chatbot({id, initialDescription}) {
   const [animalInput, setAnimalInput] = useState("");
   
@@ -30,7 +31,7 @@ export default function Chatbot({id, initialDescription}) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ animal: animalInput, description }),
+        body: JSON.stringify({ animal: animalInput, description, id }),
       });
 
       const data = await response.json();
@@ -68,7 +69,7 @@ export default function Chatbot({id, initialDescription}) {
              <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
              <p className="text-slate-100 px-6 mb-12"><ChatSteps result={result} /></p>
           </blockquote>
-
+           
             </div>
         )}
 
