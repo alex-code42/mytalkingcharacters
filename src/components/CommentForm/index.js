@@ -57,9 +57,11 @@ export default function CommentForm(slug, id) {
         // Now we're notifying swr that our data has been mutated, which will trigger a rerender.
         // If we don't include this line, the page won't automatically refresh and our submitted joke won't be immediately visible.
         event.target.reset();
+        router.push("/profile/");
       } else {
         console.error(`Error: ${response.status}`);
       }
+      router.push("/profile/");
 
       
     }

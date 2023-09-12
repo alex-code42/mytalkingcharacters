@@ -4,7 +4,23 @@ import { useRouter } from 'next/router'
 
 export default function Form({onSubmit, formName, defaultData }) {
   console.log("this is the new Default Data-->>>",defaultData);
+  
+
   const router = useRouter();
+  const { isReady } = router;
+  const { id } = router.query;
+  console.log("this is the id to delete",id)
+  
+  async function DeleteCard() {
+    console.log("delete BUtton pushed")
+    await fetch(`/api/characters/${id}`, {
+      method: "DELETE",
+    });
+    // You are handing over the joke identified by its id to our DELETE request method.
+    // This is the entire code required to do so.
+    router.push("/profile/");
+    // After deleting the joke, you route back to our index page.
+  }
   
    
     return (
@@ -61,6 +77,12 @@ export default function Form({onSubmit, formName, defaultData }) {
       </div>
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
+      <button onClick={DeleteCard}
+                type="button"
+                className="m-5 rounded-md bg-red-600  px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                Delete
+            </button>
       <button className="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" type="button" onClick={() => router.back()}>
               Cancel
             </button>
