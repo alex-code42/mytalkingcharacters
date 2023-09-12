@@ -1,4 +1,4 @@
-import Form from "@/components/CharacterForm";
+import Form from "@/components/Edit";
 import Navbar from "@/components/Navbar";
 import useSWR from "swr";
 import LoginComponent from "../login";

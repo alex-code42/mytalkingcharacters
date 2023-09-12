@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import { useRouter } from 'next/router';
 import useSWRMutation from "swr/mutation";
-import Form from "@/components/CharacterForm";
+import Form from "@/components/Edit";
 import { PhotoIcon } from '@heroicons/react/24/solid'
 import Navbar from "@/components/Navbar";
 import { useSession, signIn, signOut } from "next-auth/react"
@@ -75,7 +75,8 @@ export default function EditPage() {
   // console.log('Character edited-------->><<>>', character);
 
   if (status === "authenticated") {
-   
+
+ 
 
 
         
