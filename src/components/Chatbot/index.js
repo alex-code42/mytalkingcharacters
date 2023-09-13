@@ -4,6 +4,7 @@ import styles from "./index.module.css";
 import Image from "next/image";
 import loading from '/public/jim-carrey-jim-carrey-typing.gif'
 import ChatSteps from "./ChatSteps";
+import { useSession, signIn, signOut } from "next-auth/react"
 
 
 
@@ -12,8 +13,11 @@ export default function Chatbot({id, initialDescription}) {
   
   const [description, setDescription] = useState(initialDescription); 
   const [result, setResult] = useState("");
+  const { data: session, status } = useSession()
   const [isLoading, setIsLoading] = useState(false); // Add a loading state
   console.log("iam printing the Id in chatbot---->",id)
+  console.log("iam printing my User ID->><<>>--->")
+  const userId =session.user.id
 
   
   async function onSubmit(event) {
@@ -31,7 +35,7 @@ export default function Chatbot({id, initialDescription}) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ animal: animalInput, description, id }),
+        body: JSON.stringify({ animal: animalInput, description, id, userId }),
       });
 
       const data = await response.json();

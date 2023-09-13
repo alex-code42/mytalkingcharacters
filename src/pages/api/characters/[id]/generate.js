@@ -36,6 +36,7 @@ console.log("huhu---->")
   }
   const description = req.body.description
   const id = req.body.id
+  const userId = req.body.userId
 
 
 
@@ -80,7 +81,7 @@ console.log("huhu---->")
     // Insert a conversation
     const newCollectionItem = await new Conversation({
       character: id,
-      user: "hier kommt noch die userId hin",
+      userId: userId,
       answer: response.choices[0].message.content,
       question: userInput,
       timestamp: new Date(),
@@ -88,9 +89,10 @@ console.log("huhu---->")
     await newCollectionItem.save()
 
      // Query conversations order by Timestamp
-     const conversations = await Conversation.find({ character: id }); // Assuming you have a Mongoose model named 'Conversation'
+     console.log("the user ID before the search--->",userId);
+     const conversations = await Conversation.find({ character: id,userId: userId }); // Assuming you have a Mongoose model named 'Conversation'
      // Now you can filter the conversations based on your condition
-     console.log("These are the conversations-xxx-->>", conversations);
+    //  console.log("These are the conversations-xxx-->>", conversations);
      res.status(200).json(conversations);
      
      
@@ -101,7 +103,7 @@ console.log("huhu---->")
 
   
   
-  console.log("this is the response-message---->>>>",response.choices[0].message);
+  // console.log("this is the response-message---->>>>",response.choices[0].message);
     
   } catch(error) {
     // Consider adjusting the error handling logic for your use case

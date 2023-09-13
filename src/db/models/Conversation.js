@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 
 const conversationSchema = new Schema({
   character: { type: String},
-  user: { type: String},
+  userId: { type: String},
   question: { type: String},
   answer: { type: String},
   timestamp: { type: String},
