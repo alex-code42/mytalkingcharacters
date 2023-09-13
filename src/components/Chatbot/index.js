@@ -17,7 +17,7 @@ export default function Chatbot({id, initialDescription}) {
   const [isLoading, setIsLoading] = useState(false); // Add a loading state
   console.log("iam printing the Id in chatbot---->",id)
   console.log("iam printing my User ID->><<>>--->")
-  const userId =session.user.id
+  const userId =session?.user.id
 
   
   async function onSubmit(event) {
