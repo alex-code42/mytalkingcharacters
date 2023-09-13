@@ -13,7 +13,7 @@ export default function CharacterList() {
     return <h1>Loading...</h1>;
   }
   
-  console.log("mydata_in_characters",data);
+  console.log("MySlug",data[0].slug);
   return (
     <>
     <div className="flex flex-wrap gap-x-8 gap-y-4 justify-center  " >
@@ -23,14 +23,16 @@ export default function CharacterList() {
           <li key={character._id}>
         <div className="max-w-sm bg-white border border-gray-200  rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <Link href={`/characters/${character._id}`}>
-                <Image
-                src={mypic}
-                width={500}
-                height={500}
-                quality={65}
-                className="rounded-t-lg"
-                alt="Picture of the author"
-                />
+            <Image
+              src={`/characters/${character.slug}.png`}  // Verify that character.img is correctly set to the image URL or file path
+              decoding="async"
+              data-nimg="1"
+              width={500}
+              height={500}
+              quality={65}
+              className="rounded-t-lg"
+              alt="Picture of the author"
+            />
             </Link>
             <div className="p-5 ">
                 <Link href="#">

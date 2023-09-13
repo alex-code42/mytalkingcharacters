@@ -51,7 +51,7 @@ export default function Character() {
     <Navbar />
     
     <Image  
-      src={mypic}
+      src={`/characters/${data.slug}.png`} 
       alt="Picture of rose"
       width={250}
       height={250}
