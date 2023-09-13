@@ -12,7 +12,6 @@ import React from 'react';
 import GetConversations from "./Conversations/conversations";
 
 const ChatSteps = ({ result,id }) => {
-  console.log("this is the result--->>>>>>>>>>>",result);
   
   // Check if result is an array before mapping
   

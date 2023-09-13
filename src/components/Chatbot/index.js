@@ -15,16 +15,12 @@ export default function Chatbot({id, initialDescription}) {
   const [result, setResult] = useState("");
   const { data: session, status } = useSession()
   const [isLoading, setIsLoading] = useState(false); // Add a loading state
-  console.log("iam printing the characterId in chatbot---->",id)
-  console.log("iam printing my User ID->><<>>--->")
   const userId =session?.user.id
 
   
   async function onSubmit(event) {
     event.preventDefault();
     setIsLoading(true); // Set isLoading to true when starting the request
-    console.log("animalInput--------->",animalInput)
-    console.log("Description--------->", description)
     
 
     

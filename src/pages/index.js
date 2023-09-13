@@ -28,7 +28,6 @@ export default function Home() {
   if (error) {
     console.error('Error fetching data:', error);
   }
-  console.log("Here is my data on Characters",data);
 
 
   return (

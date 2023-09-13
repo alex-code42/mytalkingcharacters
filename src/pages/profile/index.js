@@ -59,7 +59,7 @@ export function MyOwnCharacterList() {
               <div className="flex items-center gap-x-6 ">
               <Link href={`/characters/${character._id}`}>
                 <Image
-                src={mypic}
+                src={`/characters/${character.slug}.png`}
                 width={200}
                 height={200}
                 quality={65}
