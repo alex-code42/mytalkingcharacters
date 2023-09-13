@@ -90,11 +90,16 @@ console.log("huhu---->")
 
      // Query conversations order by Timestamp
      console.log("the user ID before the search--->",userId);
+     //Here i check if the user is logged in
+     if (userId) {
      const conversations = await Conversation.find({ character: id,userId: userId }); // Assuming you have a Mongoose model named 'Conversation'
      // Now you can filter the conversations based on your condition
-    //  console.log("These are the conversations-xxx-->>", conversations);
+     console.log("These are the conversations-xxx-->>", conversations);
      res.status(200).json(conversations);
-     
+     }
+     else{
+      res.status(200).json(response.choices[0].message.content);
+     }
      
    } finally {
     //  client.close();
