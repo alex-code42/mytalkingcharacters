@@ -15,7 +15,7 @@ export default function Chatbot({id, initialDescription}) {
   const [result, setResult] = useState("");
   const { data: session, status } = useSession()
   const [isLoading, setIsLoading] = useState(false); // Add a loading state
-  console.log("iam printing the Id in chatbot---->",id)
+  console.log("iam printing the characterId in chatbot---->",id)
   console.log("iam printing my User ID->><<>>--->")
   const userId =session?.user.id
 
@@ -71,7 +71,7 @@ export default function Chatbot({id, initialDescription}) {
         ) : (
           <div className="rounded-2xl border border-indigo-400 p-6 my-8 mx-8  shadow-xl ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12">
              <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
-             <p className="text-slate-100 px-6 mb-12"><ChatSteps result={result} /></p>
+             <p className="text-slate-100 px-6 mb-12"><ChatSteps result={result} id={id}/></p>
           </blockquote>
            
             </div>
