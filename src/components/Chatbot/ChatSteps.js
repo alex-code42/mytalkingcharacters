@@ -27,9 +27,12 @@ const ChatSteps = ({ result,id }) => {
   if (status === "authenticated") {
 
     if (!Array.isArray(result)) {
-      return <div>
-        <GetConversations id={id}/>
-        </div>;
+      return(
+      <div>
+              <GetConversations id={id}/>
+              </div>
+
+      ) 
     }
 
 
@@ -46,7 +49,11 @@ const ChatSteps = ({ result,id }) => {
             <br></br>
             <div className='mb-6 border-2'>
             {item.answer.split('\n').map((element)=>(
-              <p className='mb-6'> {element}</p>
+             
+             <div className='mb-6' key={item.id}> 
+             {element}
+             </div>
+
             ))}
             </div>
             <br></br>
@@ -68,7 +75,9 @@ return (
     <div className='mb-6'>
 
             {result.split('\n').map((element)=>(
-              <p className='mb-6'> {element}</p>
+              <div className='mb-6'key={element.id}>
+              {element}
+              </div>
             ))}
             </div>
     </div>

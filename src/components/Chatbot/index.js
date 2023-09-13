@@ -71,7 +71,9 @@ export default function Chatbot({id, initialDescription}) {
         ) : (
           <div className="rounded-2xl border border-indigo-400 p-6 my-8 mx-8  shadow-xl ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12">
              <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+            <div>
              <p className="text-slate-100 px-6 mb-12"><ChatSteps result={result} id={id}/></p>
+             </div>
           </blockquote>
            
             </div>
@@ -83,7 +85,7 @@ export default function Chatbot({id, initialDescription}) {
         
 
           <form onSubmit={onSubmit} className="">
-              <label for="chat" className="sr-only">Your message</label>
+              <label htmlFor="chat" className="sr-only">Your message</label>
               <div className="flex items-center px-3 py-5 -mb-2 bg-indigo-950 rounded-lg bg-gray-50 dark:bg-gray-700 rounded-2xl border border-indigo-400">
                   
                   <button type="button" className="p-2 text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
