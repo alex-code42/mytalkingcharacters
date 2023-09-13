@@ -9,8 +9,9 @@ import { useSession } from "next-auth/react"
 
 
 import React from 'react';
+import GetConversations from "./Conversations/conversations";
 
-const ChatSteps = ({ result }) => {
+const ChatSteps = ({ result,id }) => {
   console.log("this is the result--->>>>>>>>>>>",result);
   
   // Check if result is an array before mapping
@@ -26,7 +27,9 @@ const ChatSteps = ({ result }) => {
   if (status === "authenticated") {
 
     if (!Array.isArray(result)) {
-      return <div>Please type in. I will answer everything.</div>;
+      return <div>
+        <GetConversations id={id}/>
+        </div>;
     }
 
 

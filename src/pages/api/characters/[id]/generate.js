@@ -12,9 +12,7 @@ const openai = new OpenAI({
 
 
 export default async function (req, res) {
-if (req.method === "GET"){
-  res.status(200).json("hallo brothers whats up.....");
-}
+
 
 console.log("huhu---->")
   // if (!configuration.apiKey) {
@@ -38,7 +36,12 @@ console.log("huhu---->")
   const id = req.body.id
   const userId = req.body.userId
 
-
+  // if (req.method === "GET"){
+  //   const conversations = await Conversation.find({ character: id,userId: userId }); // Assuming you have a Mongoose model named 'Conversation'
+  //   // Now you can filter the conversations based on your condition
+  //   console.log("These are the conversations-xxx-->>", conversations);
+  //   res.status(200).json(conversations);
+  // }
 
   try {
   const conversation = [
