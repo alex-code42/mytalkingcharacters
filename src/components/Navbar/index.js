@@ -86,11 +86,15 @@ export default function Example() {
                     <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                        alt=""
-                      />
+
+                      <Image
+                        src={mypic}
+                        alt="Picture of the author"
+                        className="h-12 w-12 rounded-full"
+                        width={60}
+                        height={60}    
+                     />
+
                     </Menu.Button>
                   </div>
                   <Transition

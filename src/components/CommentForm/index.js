@@ -4,7 +4,6 @@ import { useSession } from "next-auth/react"
 
 export function SessionCommentForm(slug, id) {
   const { data: session, status } = useSession()
-  console.log("i log my session",session)
   
   if (status === "authenticated") {
     return <CommentForm slug={slug} id={id}/>
@@ -23,11 +22,9 @@ export default function CommentForm(slug, id) {
     // console.log("wtf:", artPiecesInfo);
 
     const { data: session, status } = useSession()
-      console.log("i log my session in the form",session.user.email)
     
     const reviews = useSWR("/api/reviews");
       
-    console.log("this is the slug",slug, id);
     async function handleSubmit(event) {
       event.preventDefault();
     //   console.log("handleSubmit:", artPiecesInfo);

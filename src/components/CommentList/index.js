@@ -26,8 +26,7 @@ export default function CommentsList({ reviews,id }) {
     console.error('Error fetching data:', error);
   }
 
-  console.log("Here are my reviews in comment List",data);
-  console.log("Here is my Character ID in comment List",id)
+
  
   const specificId = id; // Replace with the ID you're looking for
 

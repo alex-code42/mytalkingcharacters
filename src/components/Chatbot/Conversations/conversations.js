@@ -10,7 +10,7 @@ export default function GetConversations({id}){
 
     const { data: session, status } = useSession()
 
-    console.log("this is the UserId",session.user.id)
+    
     const userId = session.user.id
 
     const fetcher = async (url) => {
@@ -22,15 +22,11 @@ export default function GetConversations({id}){
       };
     
       const { data, error } = useSWR(`/api/users/${userId}/conversations`, fetcher);
-      console.log("this is the UserIdddd",userId)
       if (error) {
         console.error('Error fetching dataaaaa:', error);
       }
-      console.log("Here is my data on UsersComments",data);
-      console.log("This is the chacter id in the conversations",id);
 
       const filteredData = data?.filter(item => item.character === id);
-      console.log("this is the filtered data",filteredData);
 
       return(
         <>
