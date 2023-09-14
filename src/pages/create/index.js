@@ -6,33 +6,35 @@ import LoginComponent from "../login";
 import { useSession, signIn, signOut } from "next-auth/react"
 import ImageUplad from "@/components/ImageUpload";
 
+function handleImageUpload(resultEvent) {
+  // Extract information about the uploaded image from the resultEvent.
+  const { info, file } = resultEvent;
 
-export default function createCharacterPage() {
+  // Access the details of the uploaded image.
+  const publicId = info.public_id;
+  const imageUrl = info.secure_url;
+
+  // Log or display the image details as needed.
+  console.log('Public ID:', publicId);
+  console.log('Image URL:', imageUrl);
+
+  
+  // You can also update your UI with the image information if needed.
+  // For example, display the image thumbnail or link.
+}
+
+
+export default function createCharacterPage(imageUrl) {
   const { data: session, status } = useSession()
   const userEmail = session?.user?.email
 
   const characters = useSWR("/api/characters");
 
-  function handleImageUpload(resultEvent) {
-    // Extract information about the uploaded image from the resultEvent.
-    const { info, file } = resultEvent;
   
-    // Access the details of the uploaded image.
-    const publicId = info.public_id;
-    const imageUrl = info.secure_url;
-  
-    // Log or display the image details as needed.
-    console.log('Public ID:', publicId);
-    console.log('Image URL:', imageUrl);
- 
-    
-    // You can also update your UI with the image information if needed.
-    // For example, display the image thumbnail or link.
-  }
 
     async function addCharacter(event) {
       event.preventDefault()
-   
+   console.log("this issssssssssss",imageUrl);
       const formData = new FormData(event.target)
       const characterData = Object.fromEntries(formData)
 
@@ -40,6 +42,8 @@ export default function createCharacterPage() {
       
       characterData.userId = session.user.id;
       characterData.published = false;
+      // characterData.img = info.secure_url;
+      // console.log("this is the character Data IMG",characterData.img)
       
 
       console.log("This is the character.data---->",characterData)
