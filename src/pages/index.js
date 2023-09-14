@@ -5,8 +5,7 @@ import Navbar from '@/components/Navbar';
 import LoginComponent from './login';
 import HeroSection from '@/components/HeroSection';
 import ContentSection1 from '@/components/ContentSection';
-import { CldImage } from 'next-cloudinary';
-import { CldUploadWidget } from 'next-cloudinary';
+
 
 
 
@@ -39,28 +38,7 @@ export default function Home() {
     <Navbar/>
     <HeroSection/>
     <ContentSection1/>
-    <CldImage
-  width="960"
-  height="600"
-  src="wm57yz7dyjnbefs6tp8b"
-  sizes="100vw"
-  alt="Description of my image"
-/>
-
- 
-<CldUploadWidget uploadPreset="wwdyyd0p">
-  {({ open }) => {
-    function handleOnClick(e) {
-      e.preventDefault();
-      open();
-    }
-    return (
-      <button className="button" onClick={handleOnClick}>
-        Upload an Image
-      </button>
-    );
-  }}
-</CldUploadWidget>
+    
 
     <LoginComponent/>
 

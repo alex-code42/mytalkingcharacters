@@ -1,10 +1,14 @@
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import useSWR from "swr";
 import { useRouter } from 'next/router'
+import { CldImage } from 'next-cloudinary';
+import { CldUploadWidget } from 'next-cloudinary';
 
 export default function Form({onSubmit, formName, defaultData }) {
   console.log("this is the new Default Data-->>>",defaultData);
   
+
+
 
   const router = useRouter();
   const { isReady } = router;
@@ -25,6 +29,8 @@ export default function Form({onSubmit, formName, defaultData }) {
    
     return (
 <div>
+
+
 <form onSubmit={(event) => onSubmit(event)}>
       <div className='rounded-2xl border border-indigo-400 p-6 my-8 mx-8  shadow-xl ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12'>
       <div className="space-y-12">
@@ -32,6 +38,7 @@ export default function Form({onSubmit, formName, defaultData }) {
           <h2 className="text-base font-semibold leading-7 text-slate-100">{formName}</h2>
           <p className="mt-1 text-sm leading-6 text-slate-100">
             Your ultimate Bot
+         
           </p>
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           </div>
