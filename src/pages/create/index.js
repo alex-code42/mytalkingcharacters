@@ -4,6 +4,7 @@ import useSWR from "swr";
 import LoginComponent from "../login";
 
 import { useSession, signIn, signOut } from "next-auth/react"
+import ImageUplad from "@/components/ImageUpload";
 
 
 export default function createCharacterPage() {
@@ -22,6 +23,7 @@ export default function createCharacterPage() {
       
       characterData.userId = session.user.id;
       characterData.published = false;
+      
 
       console.log("This is the character.data---->",characterData)
       const response = await fetch("/api/characters", {
@@ -57,6 +59,7 @@ export default function createCharacterPage() {
     return (
       <>
       <Navbar/>
+      <ImageUplad/>
       <Form onSubmit={addCharacter} formName={"Create Character"}/>
       </>
     )
@@ -65,6 +68,7 @@ export default function createCharacterPage() {
   return (
     <>
     <Navbar/>
+    
       <LoginComponent/>
         
     </>
