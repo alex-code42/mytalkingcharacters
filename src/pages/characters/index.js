@@ -4,6 +4,7 @@ import useSWR from "swr";
 import useRouter from 'router';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
+import Meta from '@/components/Meta';
 
 const router = useRouter();
 const { isReady } = router;
@@ -35,6 +36,11 @@ export default function Characters() {
   
   return (
     <>
+    <Meta
+        title="Discover chatbots with incredible character depth"
+        description="Your page description goesDiscover chatbots with incredible character depth that can empathize, entertain, and assist you like never before."
+        image="/public/chatbot_logo.png" // Replace with the URL to your image
+      />
     
           <Navbar/>
           <div className=" mx-auto">

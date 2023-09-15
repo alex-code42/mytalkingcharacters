@@ -4,6 +4,7 @@ import useSWR from "swr";
 import LoginComponent from "../login";
 import { useState } from "react";
 import Image from "next/image";
+import Meta from "@/components/Meta";
 
 import { useSession, signIn, signOut } from "next-auth/react"
 import ImageUplad from "@/components/ImageUpload";
@@ -118,6 +119,11 @@ export default function createCharacterPage() {
   if (status === "authenticated") {
     return (
       <>
+      <Meta
+        title="Create your Chatbots"
+        description="Your page description goesDiscover chatbots with incredible character depth that can empathize, entertain, and assist you like never before."
+        image="/public/chatbot_logo.png" // Replace with the URL to your image
+      />
       <Navbar/>
       
       <ImageUplad handleImageUpload={handleImageUpload}/>

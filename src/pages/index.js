@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import LoginComponent from './login';
 import HeroSection from '@/components/HeroSection';
 import ContentSection1 from '@/components/ContentSection';
+import Meta from '../components/Meta';
 
 
 
@@ -35,6 +36,11 @@ export default function Home() {
 
   return (
     <div className=" mx-auto">
+      <Meta
+        title="WickedChatBuddy.com - Chatbots that feel like your favorite companions"
+        description="Your page description goesDiscover chatbots with incredible character depth that can empathize, entertain, and assist you like never before."
+        image="/public/chatbot_logo.png" // Replace with the URL to your image
+      />
     <Navbar/>
     <HeroSection/>
     <ContentSection1/>

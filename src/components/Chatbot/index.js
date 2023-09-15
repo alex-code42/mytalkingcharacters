@@ -5,6 +5,7 @@ import Image from "next/image";
 import loading from '/public/jim-carrey-jim-carrey-typing.gif'
 import ChatSteps from "./ChatSteps";
 import { useSession, signIn, signOut } from "next-auth/react"
+import Meta from "../Meta";
 
 
 
@@ -52,10 +53,11 @@ export default function Chatbot({id, initialDescription}) {
   console.log("this is the result in the form----->>>>",result)
   return (
     <div>
-      <Head>
-        <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
-      </Head>
+      <Meta
+        title="WickedChatBuddy.com - Chatbots that feel like your favorite companions"
+        description="Your page description goesDiscover chatbots with incredible character depth that can empathize, entertain, and assist you like never before."
+        image="/public/chatbot_logo.png" // Replace with the URL to your image
+      />
 
       {isLoading ? (
           <div className={styles.loading}>
