@@ -40,7 +40,7 @@ export default function Character() {
   
 
   
-  console.log("Here is my IMG-url on [ID]",data.img);
+  console.log("Here is my IMG-url on [ID]--->>>",data.img);
   console.log("Here is my Comments on [ID]",data.reviews);
 
 
@@ -51,13 +51,13 @@ export default function Character() {
     <Navbar />
     
     <Image  
-      src={`/characters/${data.slug}.png`} 
+      src={data.img} 
       alt="Picture of rose"
       width={250}
       height={250}
       className=" mx-auto mx-auto h-30 w-30 mt-8 rounded-full"
-      
-    />   
+    />  
+    <h2 className=" mx-auto text-slate-100">{data.name}</h2> 
     <Chatbot id={data._id} initialDescription={data.description} />  
     {/* <CharacterCard data={data}/>
     <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">

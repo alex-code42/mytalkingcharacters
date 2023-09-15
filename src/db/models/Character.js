@@ -8,6 +8,7 @@ const characterSchema = new Schema({
   description: { type: String},
   // img: { type: String },
   mapURL: { type: String},
+  img: { type: String},
   reviews: [{ type: [Schema.Types.ObjectId], ref: "Review" }],
   userId: { type: String  },
   published: { type: Boolean },

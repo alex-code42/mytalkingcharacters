@@ -7,16 +7,74 @@ import Navbar from "@/components/Navbar";
 import { useSession, signIn, signOut } from "next-auth/react"
 import mypic2 from '/public/chatbot_logo.png'
 import Image from "next/image";
+import ImageUplad from "@/components/ImageUpload";
+import { useState } from "react";
+
+
+
+const ImageComponent = ({ imageUrl,defaultData }) => {
+  // Check if imageUrl is provided
+  console.log("please show the default Data",defaultData.img);
+console.log("please show the image-->>>",imageUrl);
+if (imageUrl) {
+  return (
+    <>
+      <h2>There is an image---</h2>
+      <Image
+      src={imageUrl}
+      width={500}
+      height={500}
+      alt="Picture of the author"
+    />
+    </>
+  );
+}  
+
+if (!defaultData.img) {
+    return (<h2>There is no Image</h2>); // If no imageUrl, display nothing
+  }
+
+  return (
+    <>
+      <h2>There is an image---</h2>
+      <Image
+      src={defaultData.img}
+      width={500}
+      height={500}
+      alt="Picture of the author"
+    />
+    </>
+  );
+};
+
+
 
 
 
 export default function EditPage() {
 
   const { data: session, status } = useSession()
+  const [imageUrl, setImageUrl] = useState("");
 
   // console.log("This is the Session---><<<>>",session.user.id);
 
+  function handleImageUpload(resultEvent) {
+
+    // Extract information about the uploaded image from the resultEvent.
+    const { info, file } = resultEvent;
   
+    // Access the details of the uploaded image.
+    const publicId = info.public_id;
+    const imageUrl = info.secure_url;
+    setImageUrl(imageUrl)
+    // Log or display the image details as needed.
+    console.log('Public ID:', publicId);
+    console.log('Image URL:', imageUrl);
+  
+    
+    // You can also update your UI with the image information if needed.
+    // For example, display the image thumbnail or link.
+  }
 
   const fetcher = async (url) => {
     const response = await fetch(url);
@@ -50,6 +108,7 @@ export default function EditPage() {
         event.preventDefault();
         const formData = new FormData(event.target);
         const characterData = Object.fromEntries(formData);
+        characterData.img = imageUrl;
         // Here you are preparing your updated data to be handed over to your sendRequest function.
         trigger(characterData);
     // By calling trigger with our jokeData object, you provide your `sendRequest` function with the necessary `arg` object.
@@ -86,6 +145,8 @@ export default function EditPage() {
     return (
       <>
           <Navbar/>
+          <ImageUplad handleImageUpload={handleImageUpload}/>
+          <ImageComponent defaultData={data} imageUrl={imageUrl}/>
           <Form onSubmit={handleEditCharacter} formName={'Edit Character'} defaultData={data} />
           </>
             )
