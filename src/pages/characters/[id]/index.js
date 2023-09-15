@@ -53,8 +53,8 @@ export default function Character() {
     <Image  
       src={data.img} 
       alt="Picture of rose"
-      width={250}
-      height={250}
+      width={200}
+      height={200}
       className=" mx-auto mx-auto h-30 w-30 mt-8 rounded-full"
     />  
     <h2 className=" mx-auto text-slate-100">{data.name}</h2> 

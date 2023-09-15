@@ -27,9 +27,9 @@ export default function CharacterList() {
               src={character.img}  // Verify that character.img is correctly set to the image URL or file path
               decoding="async"
               data-nimg="1"
-              width={500}
-              height={500}
-              quality={65}
+              width={400}
+              height={400}
+              quality={55}
               className="rounded-t-lg"
               alt="Picture of the author"
             />

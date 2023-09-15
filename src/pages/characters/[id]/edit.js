@@ -22,8 +22,8 @@ if (imageUrl) {
       <h2>There is an image---</h2>
       <Image
       src={imageUrl}
-      width={500}
-      height={500}
+      width={400}
+      height={400}
       alt="Picture of the author"
     />
     </>
@@ -39,8 +39,8 @@ if (!defaultData.img) {
       <h2>There is an image---</h2>
       <Image
       src={defaultData.img}
-      width={500}
-      height={500}
+      width={400}
+      height={400}
       alt="Picture of the author"
     />
     </>
