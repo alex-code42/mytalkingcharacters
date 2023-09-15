@@ -32,24 +32,24 @@ export default function HeroSection(){
       <div className="lg:col-span-2 lg:py-8">
         <ul className="grid grid-cols-2 gap-4">
           <li>
-            <a href="/characters/" className="block group">
-            <Image className="object-cover w-full rounded aspect-square" src={mypic4} alt="office content 1"/>
+            <a href="/characters/64ecb7a9e6f6fe8a4412f7f5" className="block group">
+            <Image className="object-cover w-full rounded aspect-square" width={400} height={400} src="https://res.cloudinary.com/dqbpcswn9/image/upload/v1694770046/0_2_1_y3qmgr.png" alt="office content 1"/>
 
               <div className="mt-3">
                 <h3
                   className="font-medium text-slate-100 group-hover:underline group-hover:underline-offset-4"
                 >
-                  The Alchemist
+                  Grumpy cat
                 </h3>
 
-                <p className="mt-1 text-sm text-slate-100">The smart one</p>
+                <p className="mt-1 text-sm text-slate-100">Watches neighbors discreetly</p>
               </div>
             </a>
           </li>
 
           <li>
-            <a href="/characters/" className="block group">
-            <Image className="object-cover w-full rounded aspect-square" src={mypic3} alt="office content 1"/>
+            <a href="characters/64ecba9fe6f6fe8a4412f7f9" className="block group">
+            <Image className="object-cover w-full rounded aspect-square" width={400} height={400}  src="https://res.cloudinary.com/dqbpcswn9/image/upload/v1694769964/ganja_gnome_jgltby.png" alt="office content 1"/>
               
 
 
@@ -57,10 +57,10 @@ export default function HeroSection(){
                 <h3
                   className="font-medium text-slate-100 group-hover:underline group-hover:underline-offset-4"
                 >
-                  Other Bot
+                  Ganja Gnome
                 </h3>
 
-                <p className="mt-1 text-sm text-slate-100">Super smart one</p>
+                <p className="mt-1 text-sm text-slate-100">Enjoys the energizing effects </p>
               </div>
             </a>
           </li>
