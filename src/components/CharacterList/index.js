@@ -24,7 +24,7 @@ export default function CharacterList() {
         <div className="max-w-sm bg-white border border-gray-200  rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <Link href={`/characters/${character._id}`}>
             <Image
-              src={`/characters/${character.slug}.png`}  // Verify that character.img is correctly set to the image URL or file path
+              src={character.img}  // Verify that character.img is correctly set to the image URL or file path
               decoding="async"
               data-nimg="1"
               width={500}
