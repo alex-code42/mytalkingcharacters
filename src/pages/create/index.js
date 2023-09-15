@@ -3,16 +3,42 @@ import Navbar from "@/components/Navbar";
 import useSWR from "swr";
 import LoginComponent from "../login";
 import { useState } from "react";
+import Image from "next/image";
 
 import { useSession, signIn, signOut } from "next-auth/react"
 import ImageUplad from "@/components/ImageUpload";
 
 
+
+
+const ImageComponent = ({ imageUrl }) => {
+  // Check if imageUrl is provided
+console.log("please show the image",imageUrl);
+  if (!imageUrl) {
+    return (<h2>There is no Image</h2>); // If no imageUrl, display nothing
+  }
+
+  return (
+    <>
+      <h2>There is an image---</h2>
+      <Image
+      src={imageUrl}
+      width={500}
+      height={500}
+      alt="Picture of the author"
+    />
+    </>
+  );
+};
+
+
 export default function createCharacterPage() {
   const { data: session, status } = useSession()
   const userEmail = session?.user?.email
-  const [imageUrl, setImageUrl] = useState();
   const characters = useSWR("/api/characters");
+
+  const [imageUrl, setImageUrl] = useState();
+
 
   function handleImageUpload(resultEvent) {
     // Extract information about the uploaded image from the resultEvent.
@@ -25,8 +51,17 @@ export default function createCharacterPage() {
     // Log or display the image details as needed.
     console.log('Public ID:', publicId);
     console.log('Image URL:', imageUrl);
- 
+
+
+   
     
+
+ 
+    return(
+      <div>
+        <h2>hallloi</h2>
+      </div>
+    )
     // You can also update your UI with the image information if needed.
     // For example, display the image thumbnail or link.
   }
@@ -46,7 +81,8 @@ export default function createCharacterPage() {
       
       console.log("this is the character Data IMG",imageUrl)
       
-
+    
+      
       console.log("This is the character.data---->",characterData)
       const response = await fetch("/api/characters", {
         
@@ -71,17 +107,21 @@ export default function createCharacterPage() {
         console.error(`Error: ${response.status}`);
       }
     }
+
+    
   
 
   if (status === "loading") {
-    return <p>Hang on there...</p>
+    return <p>Hang on thedsdfsdfsdfre...</p>
   }
 
   if (status === "authenticated") {
     return (
       <>
       <Navbar/>
+      
       <ImageUplad handleImageUpload={handleImageUpload}/>
+      <ImageComponent imageUrl={imageUrl}/>
       <Form onSubmit={addCharacter} formName={"Create Character"}  />
       </>
     )
@@ -90,7 +130,6 @@ export default function createCharacterPage() {
   return (
     <>
     <Navbar/>
-    
       <LoginComponent/>
         
     </>

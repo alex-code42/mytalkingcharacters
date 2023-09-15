@@ -22,13 +22,7 @@ export default function ImageUplad({handleImageUpload}){
 
     return(
         <div>
-            <CldImage
-                width="300"
-                height="300"
-                src="a3sivpzuz0tfju44fnre"
-                sizes="100vw"
-                alt="Description of my image"
-              />
+            
 
               
             <CldUploadWidget
