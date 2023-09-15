@@ -12,7 +12,40 @@ import { useState } from "react";
 
 
 
+const ImageComponent = ({ imageUrl,defaultData }) => {
+  // Check if imageUrl is provided
+  console.log("please show the default Data",defaultData.img);
+console.log("please show the image-->>>",imageUrl);
+if (imageUrl) {
+  return (
+    <>
+      <h2>There is an image---</h2>
+      <Image
+      src={imageUrl}
+      width={500}
+      height={500}
+      alt="Picture of the author"
+    />
+    </>
+  );
+}  
 
+if (!defaultData.img) {
+    return (<h2>There is no Image</h2>); // If no imageUrl, display nothing
+  }
+
+  return (
+    <>
+      <h2>There is an image---</h2>
+      <Image
+      src={defaultData.img}
+      width={500}
+      height={500}
+      alt="Picture of the author"
+    />
+    </>
+  );
+};
 
 
 
@@ -113,6 +146,7 @@ export default function EditPage() {
       <>
           <Navbar/>
           <ImageUplad handleImageUpload={handleImageUpload}/>
+          <ImageComponent defaultData={data} imageUrl={imageUrl}/>
           <Form onSubmit={handleEditCharacter} formName={'Edit Character'} defaultData={data} />
           </>
             )
