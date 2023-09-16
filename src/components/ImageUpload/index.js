@@ -21,7 +21,7 @@ export default function ImageUplad({handleImageUpload}){
     //   }
 
     return(
-        <div>
+        <div className="container mx-auto content-center flex justify-center">
             
 
               
@@ -38,7 +38,7 @@ export default function ImageUplad({handleImageUpload}){
                 open();
                 }
                 return (
-                <button className="button" onClick={handleOnClick}>
+                <button className="bg-transparent content-center mt-8 hover:bg-blue-500 text-slate-100 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={handleOnClick}>
                     Upload an Image
                 </button>
                 );
