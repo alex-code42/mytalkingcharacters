@@ -6,6 +6,7 @@ import LoginComponent from './login';
 import HeroSection from '@/components/HeroSection';
 import ContentSection1 from '@/components/ContentSection';
 import Meta from '../components/Meta';
+import Header2 from '@/components/Header2';
 
 
 
@@ -45,7 +46,7 @@ export default function Home() {
     <HeroSection/>
     <ContentSection1/>
     
-
+    <Header2/>
     <LoginComponent/>
 
     </div>
