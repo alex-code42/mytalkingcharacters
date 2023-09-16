@@ -13,26 +13,25 @@ export default function MyProfile({session}) {
   console.log("this is the session in profile",session.user.name);
   return (
     
-    <div className="rounded-2xl border border-indigo-400 p-6 my-8 mx-8  shadow-xl ring-1 ring-indigo-600 sm:order-last sm:px-8 lg:p-12">
-      <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
+    <div className="rounded-2xl my-8  sm:order-last sm:px-8 lg:p-12">
+      
+      
+          <h2 className="text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl px-8">Hi, {session.user.name}</h2>
+          <h4 className="text-base font-bold tracking-tight text-slate-100 sm:text-base px-8 mb-4">Lets have a Chat</h4>
+       
+      <div className="mx-auto grid max-w-7xl gap-x-8 px-8 lg:px-8 xl:grid-cols-3">
       <Dropdown/>
-      
-      
-      
-      
+
       <Image
                 src={mypic}
                 width={500}
                 height={500}
                 quality={65}
-                className=" h-24 w-24 rounded-full mt-8 border mx-auto border-indigo-400 drop-shadow-xl"
+                className=" h-24 w-24 rounded-full  border mx-auto border-indigo-400 drop-shadow-xl"
                 alt="Picture of the author"
                 />        
 
-        <div className="max-w-2xl">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-100 sm:text-4xl">Hi, {session.user.name}</h2>
-          <h4 className="text-base font-bold tracking-tight text-slate-100 sm:text-base">Lets have a Chat</h4>
-        </div>
+        
 
       </div>
     </div>
@@ -65,8 +64,8 @@ export function Dropdown() {
                 <a
                   href="/create"
                   className={(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-slate-100',
-                    'block px-4 py-2 text-sm'
+                    active ? 'bg-gray-100 text-gray-900 rounded-md ' : 'text-slate-100 ',
+                    'block px-4 py-2 text-sm text-slate-100 hover:bg-blue-500 rounded-md'
                   )}
                 >
                   Create Characters
@@ -79,40 +78,16 @@ export function Dropdown() {
                   href="#"
                   className={(
                     active ? 'bg-gray-100 text-gray-900' : 'text-slate-100',
-                    'block px-4 py-2 text-sm'
+                    'block px-4 py-2 text-sm text-slate-100 hover:bg-blue-500 rounded-md'
                   )}
                 >
                   Create a Chatroom
                 </a>
               )}
             </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-slate-100',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  Edit Character
-                </a>
-              )}
-            </Menu.Item>
+
             <form method="POST" action="#">
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    type="submit"
-                    className={(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-slate-100',
-                      'block w-full px-4 py-2 text-left text-sm'
-                    )}
-                  >
-                    Settings
-                  </button>
-                )}
-              </Menu.Item>
+
             </form>
           </div>
         </Menu.Items>

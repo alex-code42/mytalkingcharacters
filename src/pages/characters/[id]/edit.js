@@ -19,13 +19,15 @@ console.log("please show the image-->>>",imageUrl);
 if (imageUrl) {
   return (
     <>
-      <h2>There is an image---</h2>
+      <div className="container mx-auto mx-4 content-center flex justify-center">
       <Image
       src={imageUrl}
       width={400}
       height={400}
       alt="Picture of the author"
+      className=" mx-auto mx-auto  h-30 w-30 mt-8 rounded-full mx-4"
     />
+    </div>
     </>
   );
 }  
@@ -36,13 +38,15 @@ if (!defaultData.img) {
 
   return (
     <>
-      <h2>There is an image---</h2>
+    <div className="container mx-auto mx-4 content-center flex justify-center">
       <Image
       src={defaultData.img}
       width={400}
       height={400}
       alt="Picture of the author"
+      className=" mx-auto mx-auto  h-30 w-30 mt-8 rounded-full mx-4"
     />
+    </div>
     </>
   );
 };

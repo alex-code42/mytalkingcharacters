@@ -12,19 +12,18 @@ export default function HeroSection(){
       <div className="grid p-6 bg-gray-100 rounded place-content-center sm:p-8">
         <div className="max-w-md mx-auto text-center lg:text-left">
           <header>
-            <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">Experience the future of conversation</h2>
+            <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">"I believe in power napping, so my naps are short but frequent."</h2>
 
             <p className="mt-4 text-gray-500">
-            "Unlock the power of cutting-edge AI technology with our unparalleled chatbot solution."
-"Elevate your customer engagement to new heights with our industry-leading chatbot."
+            Quote from the Grumpy Cat
             </p>
           </header>
 
           <a
-            href="/characters/"
+            href="/characters/64ecb7a9e6f6fe8a4412f7f5/"
             className="inline-block px-12 py-3 mt-8 text-sm font-medium text-white transition bg-gray-900 border border-gray-900 rounded hover:shadow focus:outline-none focus:ring"
           >
-            See the Bots
+            Talk with the cat
           </a>
         </div>
       </div>

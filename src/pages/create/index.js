@@ -16,19 +16,25 @@ const ImageComponent = ({ imageUrl }) => {
   // Check if imageUrl is provided
 console.log("please show the image",imageUrl);
   if (!imageUrl) {
-    return (<h2>There is no Image</h2>); // If no imageUrl, display nothing
+    return (
+    <div className="container mx-auto content-center flex justify-center">
+    {/* <h2 className="mt-1 text-sm leading-6 text-slate-100">There is no Image</h2> */}
+  </div>)
   }
 
   return (
     <>
-      <h2>There is an image---</h2>
+    <div className="container mx-auto mx-4 content-center flex justify-center">
       <Image
       src={imageUrl}
-      width={500}
-      height={500}
-      alt="Picture of the author"
+      width={450}
+      height={450}
+      alt="Picture of the author"  
+      className=" mx-auto mx-auto  h-30 w-30 mt-8 rounded-full mx-4"
     />
+    </div>
     </>
+    
   );
 };
 
