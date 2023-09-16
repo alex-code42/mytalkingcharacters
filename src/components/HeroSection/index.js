@@ -10,7 +10,7 @@ export default function HeroSection(){
   <div className="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8 ">
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
       <div className="grid p-6 bg-gray-100 rounded place-content-center sm:p-8">
-        <div className="max-w-md mx-auto text-center lg:text-left">
+        <div className="max-w-md mx-auto text-center lg:text-left ">
           <header>
             <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">"I believe in power napping, so my naps are short but frequent."</h2>
 
@@ -32,7 +32,7 @@ export default function HeroSection(){
         <ul className="grid grid-cols-2 gap-4">
           <li>
             <a href="/characters/64ecb7a9e6f6fe8a4412f7f5" className="block group">
-            <Image className="object-cover w-full rounded aspect-square" width={400} height={400} src="https://res.cloudinary.com/dqbpcswn9/image/upload/v1694770046/0_2_1_y3qmgr.png" alt="office content 1"/>
+            <Image className="object-cover w-full rounded aspect-square hover:scale-105 hover:shadow-2xl transform duration-700" width={400} height={400} src="https://res.cloudinary.com/dqbpcswn9/image/upload/v1694770046/0_2_1_y3qmgr.png" alt="office content 1"/>
 
               <div className="mt-3">
                 <h3
@@ -48,7 +48,7 @@ export default function HeroSection(){
 
           <li>
             <a href="characters/64ecba9fe6f6fe8a4412f7f9" className="block group">
-            <Image className="object-cover w-full rounded aspect-square" width={400} height={400}  src="https://res.cloudinary.com/dqbpcswn9/image/upload/v1694769964/ganja_gnome_jgltby.png" alt="office content 1"/>
+            <Image className="object-cover w-full rounded aspect-square hover:scale-105 hover:shadow-2xl transform duration-700" width={400} height={400}  src="https://res.cloudinary.com/dqbpcswn9/image/upload/v1694769964/ganja_gnome_jgltby.png" alt="office content 1"/>
               
 
 

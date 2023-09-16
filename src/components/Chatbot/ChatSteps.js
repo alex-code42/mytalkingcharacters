@@ -41,7 +41,7 @@ const ChatSteps = ({ result,id }) => {
         {result.map((item) => (
           <li className='max-w-5xl mx-auto' key={item.id}>
             
-            <div className='mb-6 border-b-4 border-indigo-500'>
+            <div className=''>
             {item.question}
             </div>
             <br></br>

@@ -33,19 +33,19 @@ export default function GetConversations({id}){
         <div>
       <ul>
         {filteredData?.map((item) => (
-          <li className='max-w-5xl mx-auto' key={item.id}>
+          <li className='' key={item.id}>
             
-            <div className='mb-6 border-b-4 border-indigo-500'>
+            <div className='text-right mt-4 mr-2 py-3 px-4 bg-transparent rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white border border-indigo-400 p-6 my-8 mx-8  shadow-xl ring-1 ring-indigo-600 '>
             {item.question}
             </div>
             <br></br>
-            <br></br>
-            <div className='mb-6 border-2'>
+           
+            <div className='flex text-left ml-2 py-3 px-4 bg-transparent rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-white border border-indigo-400 p-6 my-8 mx-8  shadow-xl ring-1 ring-indigo-600'>
             {item.answer.split('\n').map((element)=>(
               <p className='mb-6'> {element}</p>
             ))}
             </div>
-            <br></br>
+            
             <br></br>
             </li>
         ))}
