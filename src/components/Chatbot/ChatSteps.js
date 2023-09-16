@@ -65,13 +65,13 @@ const ChatSteps = ({ result,id }) => {
 }
 
 if (!result) {
-  return <div>Please type in. I will answer everything.</div>;
+  return <div className="flex text-left ml-2 py-3 px-4 bg-transparent rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-white border border-indigo-400 p-6 my-8 mx-8  shadow-xl ring-1 ring-indigo-600">Please type in. I will answer everything.</div>;
 }
 
 
 return (
     <div>
-    <div className='mb-6'>
+    <div className='mb-6 flex text-left ml-2 py-3 px-4 bg-transparent rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-white border border-indigo-400 p-6 my-8 mx-8  shadow-xl ring-1 ring-indigo-600'>
 
             {result.split('\n').map((element)=>(
               <div className='mb-6'key={element.id}>

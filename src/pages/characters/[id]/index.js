@@ -49,15 +49,15 @@ export default function Character() {
   return (
     <div className="bg-indigo-950">
     <Navbar />
-    
+    <h2 className="text-center text-slate-100 mt-8 text-xl font-semibold">{data.name}</h2> 
     <Image  
       src={data.img} 
       alt="Picture of rose"
       width={200}
       height={200}
-      className=" mx-auto mx-auto h-30 w-30 mt-8 rounded-full"
+      className=" mx-auto mx-auto h-30 w-30  rounded-full"
     />  
-    <h2 className=" mx-auto text-slate-100">{data.name}</h2> 
+    
     <Chatbot id={data._id} initialDescription={data.description} />  
     {/* <CharacterCard data={data}/>
     <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
