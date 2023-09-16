@@ -38,7 +38,7 @@ export default function Characters() {
     <>
     <Meta
         title="Discover chatbots with incredible character depth"
-        description="Your page description goesDiscover chatbots with incredible character depth that can empathize, entertain, and assist you like never before."
+        description="Discover chatbots with incredible character depth that can empathize, entertain, and assist you like never before."
         image="/public/chatbot_logo.png" // Replace with the URL to your image
       />
     

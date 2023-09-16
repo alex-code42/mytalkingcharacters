@@ -67,10 +67,10 @@ export default function Chatbot({id, initialDescription}) {
             </blockquote>
             </div>
         ) : (
-          <div className="rounded-2xl  sm:order-last sm:px-8 lg:p-12">
+          <div className="rounded-2xl  sm:order-last sm:px-8 lg:p-12 ">
              <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
             <div>
-             <p className="text-slate-100 px-6 mb-12"><ChatSteps result={result} id={id}/></p>
+             <p className="text-slate-100 px-6 mb-12" ><ChatSteps result={result} id={id}/></p>
              </div>
           </blockquote>
            
