@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 
 import { useSession, signIn, signOut } from "next-auth/react"
+import { useSpring, animated } from '@react-spring/web'
 
 
 
@@ -10,6 +11,11 @@ export default function GetConversations({id}){
 
     const { data: session, status } = useSession()
 
+    const springs = useSpring({
+      from: { y: 0 },
+      to: { y: 100 },
+      config: { tension: 120, friction: 60}, // Adjust the duration as needed
+    });
     
     const userId = session.user.id
 
