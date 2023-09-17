@@ -1,6 +1,8 @@
 // components/ChatSteps.js
 import { useSession } from "next-auth/react"
 import { useSpring, animated } from '@react-spring/web'
+import { useRef } from "react";
+import { useEffect } from "react";
 
 
 
@@ -24,6 +26,11 @@ const ChatSteps = ({ result,id }) => {
   // Create a preformatted text block to display the steps
   const { data: session, status } = useSession()
 
+  useEffect(() => {
+    // Scroll to the bottom of the page after rendering
+    window.scrollTo(0, document.body.scrollHeight);
+  }, []);
+
  
 
   if (status === "authenticated") {
@@ -31,8 +38,8 @@ const ChatSteps = ({ result,id }) => {
     if (!Array.isArray(result)) {
       return(
       <div>
-              <GetConversations id={id}/>
-              </div>
+         <GetConversations id={id}/>
+      </div>
 
       ) 
     }
@@ -41,23 +48,30 @@ const ChatSteps = ({ result,id }) => {
   return (
     <div>
       <ul>
+        
         {result.map((item) => (
           <li className='max-w-5xl mx-auto' key={item.id}>
-            
-            <div className=''>
+            <div className="text-right mt-4 mr-2 py-3 px-4 bg-transparent rounded-bl-3xl mb-8 rounded-tl-3xl rounded-tr-xl text-white border border-indigo-400 p-6 my-8 mx-8  shadow-xl ring-1 ring-indigo-600 duration-1000 relative transform transition-all translate-y-12 ease-out">
+            <div className="opacity-0 animate-fade-in opacity-100">
             {item.question}
+            
+            
             </div>
-            <br></br>
-            <br></br>
-            <div className='mb-6 border-2'>
+            </div>
+
+            <div className="text-left ml-2 py-3 px-4 bg-transparent rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-white border border-indigo-400 p-6 my-8 mx-8 shadow-xl ring-1 ring-indigo-600 duration-1000 relative transform transition-all translate-y-12 ease-out">
+            <div className="opacity-0 animate-fade-in opacity-100">
             {item.answer.split('\n').map((element)=>(
              
              <div className='mb-6' key={item.id}> 
 
              {element}
+             
              </div>
+             
 
             ))}
+            </div>
             </div>
             <br></br>
             <br></br>
@@ -90,14 +104,14 @@ if (!result) {
 
 
 return (
-  <div className="text-left ml-2 py-3 px-4 bg-transparent rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-white border border-indigo-400 p-6 my-8 mx-8 shadow-xl ring-1 ring-indigo-600 duration-1000 relative transform transition-all translate-y-12 ease-out">
-  <div className="opacity-0 animate-fade-in opacity-100">
+    <div className="text-left ml-2 py-3 px-4 bg-transparent rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-white border border-indigo-400 p-6 my-8 mx-8 shadow-xl ring-1 ring-indigo-600 duration-1000 relative transform transition-all translate-y-12 ease-out">
+      <div className="opacity-0 animate-fade-in opacity-100">
             {result.split('\n').map((element)=>(
               <div className='mb-6'key={element.id}>
               {element}
               </div>
             ))}
-            </div>
+      </div>
     </div>
   );
 };
