@@ -15,3 +15,18 @@
   border: 1px solid #ccc; */
   /* Add any other CSS styles you want */
 }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation-name: fade-in;
+  animation-duration: 1.0s; /* Set the duration to match your desired duration */
+  animation-fill-mode: both;
+}
