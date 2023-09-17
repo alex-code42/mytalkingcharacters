@@ -80,7 +80,7 @@ if (!result) {
     <animated.div style={springs}>
       <div className="text-left ml-2 py-3 px-4 bg-transparent rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-white border border-indigo-400 mx-8 shadow-xl ring-1 ring-indigo-600 relative transform transition-all translate-y-12 ease-out">
         <animated.div className="opacity-0 animate-fade-in opacity-100">
-        Hey buddy what's up?
+        Hey Buddy what's up?
         </animated.div>
       </div>
     </animated.div>
