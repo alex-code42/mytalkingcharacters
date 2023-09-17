@@ -49,7 +49,7 @@ export default function Character() {
   return (
     <div className="bg-indigo-950">
     <Navbar />
-    <h2 className="text-center text-slate-100 mt-8 text-xl font-semibold">{data.name}</h2> 
+    <h2 className="text-center text-slate-100 mt-8 text-xl mb-2 font-semibold">{data.name}</h2> 
     <Image  
       src={data.img} 
       alt="Picture of rose"

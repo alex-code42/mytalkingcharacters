@@ -7,6 +7,7 @@ import HeroSection from '@/components/HeroSection';
 import ContentSection1 from '@/components/ContentSection';
 import Meta from '../components/Meta';
 import Header2 from '@/components/Header2';
+import Header3 from '@/components/Header3';
 
 
 
@@ -43,10 +44,13 @@ export default function Home() {
         image="/public/chatbot_logo.png" // Replace with the URL to your image
       />
     <Navbar/>
-    <HeroSection/>
-    <ContentSection1/>
-    
     <Header2/>
+    <ContentSection1/>
+    <HeroSection/>
+    <Header3/>
+    
+    
+    
     <LoginComponent/>
 
     </div>
