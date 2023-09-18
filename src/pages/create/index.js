@@ -5,6 +5,8 @@ import LoginComponent from "../login";
 import { useState } from "react";
 import Image from "next/image";
 import Meta from "@/components/Meta";
+import { useRouter } from 'next/router';
+
 
 import { useSession, signIn, signOut } from "next-auth/react"
 import ImageUplad from "@/components/ImageUpload";
@@ -43,6 +45,7 @@ export default function createCharacterPage() {
   const { data: session, status } = useSession()
   const userEmail = session?.user?.email
   const characters = useSWR("/api/characters");
+  const router = useRouter();
 
   const [imageUrl, setImageUrl] = useState();
 
@@ -50,7 +53,7 @@ export default function createCharacterPage() {
   function handleImageUpload(resultEvent) {
     // Extract information about the uploaded image from the resultEvent.
     const { info, file } = resultEvent;
-  
+    
     // Access the details of the uploaded image.
     const publicId = info.public_id;
     const imageUrl = info.secure_url;
@@ -75,6 +78,7 @@ export default function createCharacterPage() {
 
     async function addCharacter(event) {
       event.preventDefault()
+      
    console.log("this issssssssssss",imageUrl);
       const formData = new FormData(event.target)
       formData.append("img", imageUrl);
@@ -91,6 +95,7 @@ export default function createCharacterPage() {
     
       
       console.log("This is the character.data---->",characterData)
+      router.push('/characters/');
       const response = await fetch("/api/characters", {
         
         method: "POST",
