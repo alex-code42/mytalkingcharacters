@@ -47,7 +47,7 @@ export default function createCharacterPage() {
   const characters = useSWR("/api/characters");
   const router = useRouter();
 
-  const [imageUrl, setImageUrl] = useState();
+  const [imageUrl, setImageUrl] = useState("https://res.cloudinary.com/dqbpcswn9/image/upload/v1695032484/tv5xnegitnaweckl5z1p.png");
 
 
   function handleImageUpload(resultEvent) {
@@ -81,6 +81,8 @@ export default function createCharacterPage() {
       
    console.log("this issssssssssss",imageUrl);
       const formData = new FormData(event.target)
+      
+
       formData.append("img", imageUrl);
       const characterData = Object.fromEntries(formData)
 
@@ -95,7 +97,7 @@ export default function createCharacterPage() {
     
       
       console.log("This is the character.data---->",characterData)
-      router.push('/characters/');
+      router.push('/profile/');
       const response = await fetch("/api/characters", {
         
         method: "POST",
