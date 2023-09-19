@@ -18,13 +18,11 @@ export default function Header2(){
 
             <h1 class="text-2xl leading-tight sm:text-4xl md:text-4xl xl:text-4xl
             font-bold text-white ">
-                "Asking me to choose a favorite <span
-                    class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-blue-600 via-30% to-green-600">Ganja </span>
-                 is like asking a parent to choose a favorite child"                
-            </h1>
+                " Let's start by drilling down into your current  <span
+                    class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-blue-600 via-30% to-green-600">business operations </span>
+                and identifying the low hanging fruit opportunities."            </h1>
             <p class="mt-8 text-white">
-            "Ah, my fellow cannabis enthusiast, fear not! I am here to assist you on your journey. Whether you seek guidance in cultivating your own cannabis garden, deciphering my cryptic riddles, or simply discussing our mutual love for the plant, I am at your service."
-            </p>
+            "We can conduct a quick back-of-the-envelope analysis to prioritize these opportunities based on their potential impact and feasibility. Once we have identified the low hanging fruit, we can then focus on strategies to maximize their potential and achieve quick wins for your business." Have a chat with the Business Consultant.      </p>
             <div class="mt-10  w-full flex max-w-md mx-auto lg:mx-0">
                 <div class="flex sm:flex-row flex-col gap-5 w-full">
   
@@ -32,8 +30,8 @@ export default function Header2(){
             </div>
         </div>
         <div class="flex flex-1 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl  ">
-        <Link href="/characters/64ecba9fe6f6fe8a4412f7f9">
-            <img src="https://res.cloudinary.com/dqbpcswn9/image/upload/v1694769964/ganja_gnome_jgltby.png" alt="Hero image" width="2350" height="2359"
+        <Link href="characters/65086675e980d9e1c31da0c9">
+            <img src="https://res.cloudinary.com/dqbpcswn9/image/upload/v1695049313/xqhnkmcfn0ts0gl2xu2f.png" alt="Hero image" width="2350" height="2359"
                 class="lg:absolute lg:w-full lg:h-full rounded-lg object-cover hover:scale-105 hover:shadow-2xl transform duration-700"/>
         </Link>
         </div>
