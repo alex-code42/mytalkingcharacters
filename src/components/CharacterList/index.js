@@ -7,18 +7,16 @@ import Link from "next/link";
 export default function CharacterList() {
   const router = useRouter();
   const { data } = useSWR("/api/characters");
-  const page = parseInt(router.query.page) || 1; // Get the current page from the query parameter
+  const page = parseInt(router.query.page) || 1; 
 
   if (!data) {
     return <h1>Loading...</h1>;
   }
 
-  // Calculate the start and end indices for the current page
-  const itemsPerPage = 8;
+  const itemsPerPage = 6;
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-  // Get the characters to display on the current page
   const charactersToDisplay = data.slice(startIndex, endIndex);
 
   return (
