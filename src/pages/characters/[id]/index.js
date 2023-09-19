@@ -43,6 +43,11 @@ export default function Character() {
   console.log("Here is my IMG-url on [ID]--->>>",data.img);
   console.log("Here is my Comments on [ID]",data.reviews);
 
+if (data.img === "" || data.img === "undefined"){
+  console.log("we print now the characters image by default in frontend");
+  data.img = "https://res.cloudinary.com/dqbpcswn9/image/upload/v1695032484/tv5xnegitnaweckl5z1p.png"
+}
+
 
   // `/public/characters/${data.slug}.png`
 
