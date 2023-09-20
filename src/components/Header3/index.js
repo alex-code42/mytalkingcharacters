@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export default function Header3(){
     return(
@@ -33,7 +34,7 @@ export default function Header3(){
         </div>
         <div class="flex flex-1 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl  ">
         <Link href="/characters/64fafabf0cbd8242d4c84b63">
-            <img src="https://res.cloudinary.com/dqbpcswn9/image/upload/v1694783755/w72irngngsje7sv8oqzi.png" alt="Hero image" width="2350" height="2359"
+            <Image src="https://res.cloudinary.com/dqbpcswn9/image/upload/v1694783755/w72irngngsje7sv8oqzi.png" alt="Hero image" width={500} height={500} quality={60}
                 class="lg:absolute lg:w-full lg:h-full rounded-lg object-cover hover:scale-105 hover:shadow-2xl transform duration-700"/>
         </Link>
         </div>
