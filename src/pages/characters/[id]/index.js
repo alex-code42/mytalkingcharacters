@@ -9,6 +9,7 @@ import CommentsList from "@/components/CommentList";
 import CommentForm from "@/components/CommentForm";
 import { SessionCommentForm } from "@/components/CommentForm";
 import Chatbot from "@/components/Chatbot";
+import Meta from "@/components/Meta";
 
 
 
@@ -49,10 +50,14 @@ if (data.img === "" || data.img === "undefined"){
 }
 
 
-  // `/public/characters/${data.slug}.png`
 
   return (
     <div className="bg-indigo-950">
+      <Meta
+        title="Hey Buddy, whats up."
+        description="Talk with my Bot now and enjoy the conversation."
+        image={data.img} 
+      />
     <Navbar />
     <h2 className="text-center text-slate-100 mt-8 text-xl mb-2 font-semibold">{data.name}</h2> 
     <Image  
