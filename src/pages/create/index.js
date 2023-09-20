@@ -90,7 +90,6 @@ export default function createCharacterPage() {
       
       characterData.userId = session.user.id;
       characterData.published = false;
-      // characterData.img = imageUrl;
       
       console.log("this is the character Data IMG",imageUrl)
       
@@ -110,12 +109,8 @@ export default function createCharacterPage() {
       });
   
       if (response.ok) {
-        // If our attempt at posting our joke is a success, we proceed here.
         await response.json();
-        // At this point, the promise of response has resolved.
         characters.mutate();
-        // Now we're notifying swr that our data has been mutated, which will trigger a rerender.
-        // If we don't include this line, the page won't automatically refresh and our submitted joke won't be immediately visible.
         event.target.reset();
       } else {
         console.error(`Error: ${response.status}`);
@@ -133,9 +128,9 @@ export default function createCharacterPage() {
     return (
       <>
       <Meta
-        title="Create your Chatbots"
+        title="Create your personal Chatbots"
         description="Your page description goesDiscover chatbots with incredible character depth that can empathize, entertain, and assist you like never before."
-        image="/public/chatbot_logo.png" // Replace with the URL to your image
+        image="https://res.cloudinary.com/dqbpcswn9/image/upload/v1695049313/xqhnkmcfn0ts0gl2xu2f.png"
       />
       <Navbar/>
       
