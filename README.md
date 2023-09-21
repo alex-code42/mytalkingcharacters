@@ -1,8 +1,8 @@
 # My Talking Characters Website
 
-![Website Preview](https://your-image-url-here.com)
+![Website Preview](https://res.cloudinary.com/dqbpcswn9/image/upload/v1695287085/website_rzyhve.png)
 
-**Live Demo:** [My Talking Characters](https://res.cloudinary.com/dqbpcswn9/image/upload/v1695287085/website_rzyhve.png)
+**Live Demo:** [My Talking Characters](https://mytalkingcharacters.vercel.app/)
 
 ## Description
 
