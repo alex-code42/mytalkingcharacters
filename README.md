@@ -6,7 +6,7 @@
 
 ## Description
 
-"The 'My Talking Characters' website is an innovative platform that enables users to engage with a diverse collection of interactive characters. Each character possesses a distinctive persona, captivating visuals, and a concise bio. Users can effortlessly click on these characters to unlock deeper insights or initiate dynamic dialogues, fostering a truly immersive experience." - words from the "Business Strategy Consultant"
+"The 'My Talking Characters' website is an innovative platform that enables users to engage with a diverse collection of interactive characters. Each character possesses a distinctive persona, captivating visuals, and a concise bio. Users can effortlessly click on these characters to unlock deeper insights or initiate dynamic dialogues, fostering a truly immersive experience." - Words from the "Business Strategy Consultant"
 
 ![The Business Stragegy Consultant](https://res.cloudinary.com/dqbpcswn9/image/upload/v1695049313/xqhnkmcfn0ts0gl2xu2f.png)
 
