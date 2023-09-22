@@ -1,12 +1,20 @@
-# My Talking Characters Website
+# My Talking Characters
 
-![Website Preview](https://res.cloudinary.com/dqbpcswn9/image/upload/v1695287085/website_rzyhve.png)
+![Website Preview](https://res.cloudinary.com/dqbpcswn9/image/upload/v1695376335/website2_sro3ey.png)
 
 **Live Demo:** [My Talking Characters](https://mytalkingcharacters.vercel.app/)
 
 ## Description
 
-The "My Talking Characters" website is a platform that allows users to interact with a collection of characters. Each character has a unique identity, image, and a brief description. Users can click on characters to learn more about them or initiate conversations with them.
+"Welcome to the Enchanted Realm of "My Talking Characters"! Here, a magical platform awaits, inviting you to engage with a captivating collection of mystical beings. Each character possesses a distinct essence, adorned with their own enigmatic image and accompanied by a glimpse into their extraordinary story.
+
+Embark on an extraordinary journey as you click upon these enchanting creatures, delving deeper into their realm to unravel the secrets they hold. Immerse yourself in their captivating tales, as their unique identities unfold before your very eyes.
+
+But the magic does not end there! Prepare to be amazed as you initiate conversations with these extraordinary beings. Engage in dialogue that will transport you into a realm where words hold immense power and curiosity is rewarded with hidden knowledge.
+
+Let the ethereal allure of "My Talking Characters" guide you into a realm of wonder and enchantment. Uncover the mysteries that lie within, as you embrace the opportunity to interact with these extraordinary beings, and perhaps, discover a deeper connection to the mystical world that surrounds us all." Description from "The Fungal Alchemist"
+
+![The Fungal Alchemist](https://res.cloudinary.com/dqbpcswn9/image/upload/v1694769963/fungal_alchemist_i7asno.png)
 
 This website was built using [Next.js](https://nextjs.org/) for the frontend and leverages [Vercel](https://vercel.com/) for deployment. It incorporates features like dynamic routing, image optimization, and interactive UI components.
 
@@ -14,7 +22,8 @@ This website was built using [Next.js](https://nextjs.org/) for the frontend and
 
 - Browse and view a collection of talking characters.
 - Click on a character to access detailed information and initiate conversations.
-- Responsive design for seamless use on various devices.
+- Login to create your own character.
+- Login to use the chat history.
 
 ## Usage
 
